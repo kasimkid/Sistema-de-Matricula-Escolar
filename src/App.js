@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import injectContext from "./store/appContext";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <ScrollToTop>
+          <Routes>
+            {/* <Route path="/" element={<Home />} />
+            <Route path="*" element={<h1>Not found!</h1>} /> */}
+          </Routes>
+        </ScrollToTop>
+      </BrowserRouter>
+    </>
+
   );
 }
 
-export default App;
+export default injectContext(App);
