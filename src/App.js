@@ -3,6 +3,8 @@ import injectContext from "./store/appContext";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
+
 
 function App() {
 
@@ -17,7 +19,6 @@ function App() {
         </ScrollToTop>
       </BrowserRouter>
     </>
-
   );
 }
 
