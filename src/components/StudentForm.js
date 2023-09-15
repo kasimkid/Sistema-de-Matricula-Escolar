@@ -11,10 +11,7 @@ export const StudentForm = () => {
                 <input type="text" className="form-control" id="rut" name="rut" required />
             </div>
             <div className="form-group">
-                <label htmlFor="password">Contraseña:</label>
-                <input type="password" className="form-control" id="password" name="password" required />
-            </div>
-            <div className="form-group">
+
                 <label htmlFor="name">Nombre:</label>
                 <input type="text" className="form-control" id="name" name="name" required />
             </div>
