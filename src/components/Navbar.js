@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Navbar.css";
+// import "../styles/Navbar.css";
 
-export const MenuNavbar = () => {
+export const Navbar = () => {
   return (
     <nav className=" container  navbar navbar-expand-lg bg-body-tertiary mt-2">
       <div className="container-fluid">
