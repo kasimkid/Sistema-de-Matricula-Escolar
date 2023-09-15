@@ -1,7 +1,7 @@
 import React from 'react'
 import { Login } from '../components/Login'
 
-const Home = () => {
+export const Home = () => {
     return (
         <>
             <section className="views mt-2">
@@ -17,4 +17,3 @@ const Home = () => {
     )
 }
 
-export default Home
