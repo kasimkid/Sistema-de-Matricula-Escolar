@@ -1,22 +1,27 @@
-import './App.css';
+import React from 'react';
 import injectContext from "./store/appContext";
-import "bootstrap/dist/js/bootstrap.min.js";
+import ScrollToTop from './components/scrollToTop';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { MenuNavbar } from './components/navbar';
+import { Home } from "./views/home";
+import './App.css';
+// import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
+        <MenuNavbar/>
         <ScrollToTop>
           <Routes>
-            {/* <Route path="/" element={<Home />} />
-            <Route path="*" element={<h1>Not found!</h1>} /> */}
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
-    </>
+      </>
 
   );
 }

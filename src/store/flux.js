@@ -1,4 +1,4 @@
-import { clippingParents } from "@popperjs/core";
+// import { clippingParents } from "@popperjs/core";
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
