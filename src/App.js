@@ -14,7 +14,7 @@ function App() {
         <ScrollToTop>
           <Routes>
             {/* <Route path="/" element={<Home />} /> */}
-            {/* <Route path="*" element={<h1>Not found!</h1>} /> */}
+            <Route path="*" element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>
       </BrowserRouter>
