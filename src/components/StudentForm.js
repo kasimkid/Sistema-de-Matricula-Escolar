@@ -7,23 +7,23 @@ export const StudentForm = () => {
     return (
         <form action="procesar_formulario.php" method="POST">
             <div className="form-group">
-                <label htmlFor="rut">Rut</label>
+                <label htmlFor="rut">Rut:</label>
                 <input type="text" className="form-control" id="rut" name="rut" required />
             </div>
             <div className="form-group">
-                <label htmlFor="password">Contraseña</label>
+                <label htmlFor="password">Contraseña:</label>
                 <input type="password" className="form-control" id="password" name="password" required />
             </div>
             <div className="form-group">
-                <label htmlFor="name">Nombre</label>
+                <label htmlFor="name">Nombre:</label>
                 <input type="text" className="form-control" id="name" name="name" required />
             </div>
             <div className="form-group">
-                <label htmlFor="last_name">Apellido</label>
+                <label htmlFor="last_name">Apellido:</label>
                 <input type="text" className="form-control" id="last_name" name="last_name" required />
             </div>
             <div className="form-group">
-                <label htmlFor="genre">Género</label>
+                <label htmlFor="genre">Género:</label>
                 <input type="text" className="form-control" id="genre" name="genre" />
             </div>
             <div className="form-group">
