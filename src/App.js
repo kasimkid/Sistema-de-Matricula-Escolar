@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import { Navbar } from './components/Navbar';
+import Home from './views/Home';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <ScrollToTop>
           <Navbar/>
           <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<Home />} />
             <Route path="*" element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>
