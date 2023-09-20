@@ -1,9 +1,10 @@
 import React from "react";
-// import "../styles/Navbar.css";
+import "../styles/navbar.css";
 
-export const Navbar = (title) => {
+export const Navbar = () => {
+
   return (
-    <nav className=" container  navbar navbar-expand-lg bg-body-tertiary mt-2">
+    <nav className=" container nav-color navbar navbar-expand-lg mt-2">
       <div className="container-fluid">
         <image src="" className="navbar-brand">
           Logo
