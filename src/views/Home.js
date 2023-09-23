@@ -1,6 +1,7 @@
 import React from 'react'
 import { Login } from '../components/Login'
 import "../styles/home.css";
+import { Footer } from '../components/Footer';
 
 
 export const Home = () => {
@@ -14,7 +15,8 @@ export const Home = () => {
                 </div>
                 <div className=" col-6 d-flex align-items-center">
                 <Login/>
-                </div> 
+                </div>
+                <Footer/> 
                 </section>
             </div>
 

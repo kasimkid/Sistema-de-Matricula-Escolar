@@ -1,0 +1,8 @@
+.redes{
+    background-color: #A8E6CF;
+    padding: 15px;
+}
+.icons {
+    display: flex;
+    justify-content: space-around;
+}

@@ -14,7 +14,7 @@ export const Login = () => {
               className="form-control input-rut"
               id="rut-number"
               placeholder="Rut"
-              requerid="value"
+              requerid
             />
           </div>
         </div>
@@ -28,7 +28,7 @@ export const Login = () => {
               className="form-control input-pass"
               id="inputPassword"
               placeholder="password"
-              requerid="value"
+              requerid
             />
           </div>
           <div className="d-flex justify-content-center">

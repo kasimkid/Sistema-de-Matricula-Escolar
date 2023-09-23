@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 export const GuardianForm = () => {
 
     return (
-        <form action="procesar_apoderado.php" method="POST">
+        <form>
             <div className="form-group">
                 <label htmlFor="rut_apoderado">Rut:</label>
                 <input type="text" className="form-control" id="rut_apoderado" name="rut_apoderado" required />

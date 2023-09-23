@@ -1,3 +1,12 @@
 .nav-color{
     background-color: #A8E6CF;
 }
+
+.dropdown-menu li{
+    color: orangered;
+    margin-left: 5px;
+    outline: none;
+}
+.dropdown-menu{
+    outline: none;
+}
