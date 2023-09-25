@@ -24,7 +24,11 @@ export const StudentForm = () => {
                         </div>
                         <div className="form-group">
                             <label htmlFor="genre">Género:</label>
-                            <input type="text" className="form-control" id="genre" name="genre" />
+                            <select className="form-control" id="genre" name="genre">
+                               <option value="" disabled hidden></option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
                         </div>
                         <div className="form-group">
                             <label htmlFor="birthday">Fecha de Nacimiento:</label>
@@ -42,11 +46,18 @@ export const StudentForm = () => {
                         </div>
                         <div className="form-group">
                             <label htmlFor="health_system">Sistema de Salud:</label>
-                            <input type="text" className="form-control" id="health_system" name="health_system" />
+                            <select className="form-control" id="health_system" name="health_system">
+                                <option value=""disabled hidden></option>
+                                <option value="Fonasa">Fonasa</option>
+                                <option value="Isapre">Isapre</option>
+                                <option value="Dipreca">Dipreca</option>
+                                <option value="Capredena">Capredena</option>
+                                <option value="Disanfa">Disanfa</option>
+                            </select>
                         </div>
                         <div className="form-group">
                             <label htmlFor="observation">Observación:</label>
-                            <textarea className="form-control" id="observation" name="observation"></textarea>
+                            <textarea className="form-control" id="observation" name="observation" maxLength="250"></textarea>
                         </div>
                         <button type="submit" className="btn btn-primary">Enviar</button>
                     </div>
