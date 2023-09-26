@@ -1,24 +1,27 @@
 import React from "react";
-// import "../styles/Navbar.css";
+import "../styles/navbar.css";
 
-export const Navbar = (title) => {
+export const Navbar = () => {
   return (
-    <nav className=" container  navbar navbar-expand-lg bg-body-tertiary mt-2">
-      <div className="container-fluid">
-        <image src="" className="navbar-brand">
-          Logo
-        </image>
+    <nav className=" container nav-color navbar navbar-expand-lg mt-2">
+      <div className="container">
+        <img
+          src=""
+          className="navbar-brand "
+        ></img>
         <h4>Sistema de Matricula Escolar</h4>
         <button
           className="navbar-toggler"
-          disabled="true"
           type="button"
           data-bs-toggle="dopdown"
           aria-expanded="false"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNavDropdown"
+        >
           <ul className="navbar-nav">
             <li className="nav-item dropdown">
               <button
@@ -30,8 +33,8 @@ export const Navbar = (title) => {
                 Menu
               </button>
               <ul className="dropdown-menu">
-                <li>Apoderado Académico</li>
-                <li>Apoderado Financiero</li>
+                <li>Académico</li>
+                <li>Financiero</li>
                 <li>Mis Datos</li>
               </ul>
             </li>
@@ -39,6 +42,5 @@ export const Navbar = (title) => {
         </div>
       </div>
     </nav>
-
   );
 };

@@ -1,0 +1,45 @@
+.box1{
+    width: 300px;
+    height: 200px;
+    background-color:#D9D9D9;
+    border-radius: 12px;
+    box-shadow:2px 2px 8px #130d0d;
+    text-align: center;
+}
+.box2{
+    width: 300px;
+    height: 200px;
+    background-color:#D9D9D9;
+    border-radius: 12px;
+    box-shadow:2px 2px 8px #130d0d;
+    text-align: center;
+}
+
+.box-log{
+    width: 400px;
+    height: 240px;
+    background-color: #D9D9D9;
+    border-radius: 12px;
+    box-shadow:2px 2px 8px #130d0d;
+    
+
+}
+.input-rut::placeholder{
+    text-align: center;
+    background-image: url(../../public/Dni-card.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    align-items: center
+}
+
+
+.input-pass::placeholder{
+ 
+    text-align: center;
+    background-image: url(../../public/key\ pass.png);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    align-items: center
+}

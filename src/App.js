@@ -1,11 +1,11 @@
-import './App.css';
 import injectContext from "./store/appContext";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Routes, Route, Router } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 
 
+import "../src/styles/App.css";
 import { Navbar } from './components/Navbar';
 import { Home } from './views/Home';
 import { FormStudent } from "./views/Form-student"
