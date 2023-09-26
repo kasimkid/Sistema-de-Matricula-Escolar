@@ -12,6 +12,7 @@ export const StudentForm = () => {
     const [formData, setFormData] = useState({
         rut:"",
         name: "",
+        password:"",
         last_name: "",
         gender: "",
         birthday: "",
@@ -24,14 +25,18 @@ export const StudentForm = () => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
+    console.log("formdata ", formData )
+
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
         actions.formStudents(formData);
         setFormData({
             rut:"",
             name: "",
+            password:"",
             last_name: "",
             gender: "",
             birthday: "",
@@ -42,11 +47,12 @@ export const StudentForm = () => {
         })
     } 
 
+
     return (
         
             <div className="container">
                 <div className="row">
-                    <form className="d-flex justify-content-center" onSubmit={handleSubmit}>
+                    <form className="d-flex justify-content-center" onSubmit= {handleSubmit}>
                         <div className="col-md-6">
                             <div className="form-group">
                                 <label htmlFor="rut">Rut:</label>
@@ -59,6 +65,10 @@ export const StudentForm = () => {
                             <div className="form-group">
                                 <label htmlFor="last_name">Apellido:</label>
                                 <input type="text" className="form-control" id="last_name" name="last_name" onChange={handleChange} value={formData.last_name} required />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="password">password:</label>
+                                <input type="password" className="form-control" id="password" name="password" onChange={handleChange} value={formData.password} required />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="genre">Género:</label>
@@ -97,7 +107,7 @@ export const StudentForm = () => {
                                 <label htmlFor="observation">Observación:</label>
                                 <textarea className="form-control" id="observation" name="observation" maxLength="250" onChange={handleChange} value={formData.observation}></textarea>
                             </div>
-                            <button className="btn btn-primary mt-2">Enviar</button>
+                            <button type="submit" className="btn btn-primary mt-2">Enviar</button>
                         </div>
                     </form>
                 </div>

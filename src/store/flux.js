@@ -32,7 +32,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       formStudents: (info) => {
+        console.log(info)
         const store = getStore()
+        console.log(`${url}${urlUpdateStudent}`)
         fetch(`${url}${urlUpdateStudent}`, {
           method: "POST",
           body: JSON.stringify(info),
