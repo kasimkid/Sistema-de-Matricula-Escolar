@@ -3,8 +3,8 @@ const url = process.env.REACT_APP_API_URL;
 const urlCreateAccount = process.env.REACT_APP_API_URL_CREATE_ACCOUNT;
 // const urlCreateCourse = process.env.REACT_APP_API_URL_CREATE_COURSE;
 const urlUpdateStudent = process.env.REACT_APP_API_URL_UPDATE_STUDENT;
-// const urlEditStudent = process.env.REACT_APP_API_URL_EDIT_STUDENT;
-// const urlUpdateFinancial = process.env.REACT_APP_API_URL_UPDATE_FINALCIAL;
+//const urlEditStudent = process.env.REACT_APP_API_URL_EDIT_STUDENT; 
+const urlUpdateFinancial = process.env.REACT_APP_API_URL_UPDATE_FINALCIAL;
 // const urlEditFinalcial = process.env.REACT_APP_API_URL_EDIT_FINANCIAL;
 // const urlUpdateAcademic = process.env.REACT_APP_API_URL_UPDATE_ACADEMIC;
 // const urlEditAcademic = process.env.REACT_APP_API_URL_EDIT_ACADEMIC;
@@ -16,6 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       students: [],
       student: "",
+      financials: [],
+      financial: ""
     },
     actions: {
       createAccount: async (info) => {
@@ -51,6 +53,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => ("Error:", error));
       },
+      
+      formFinancial: (info) => {
+        const store = getStore()
+        fetch(`${url}${urlUpdateFinancial}`, {
+          method:"POST" ,  // or 'PUT'
+          body :JSON.stringify(info ),
+          headers: {
+            "Content-type": "application/json"
+          },
+        })
+          .then((data) => {
+            return data.json();
+          })
+          .then((resp) => {
+            setStore({financial: [...store.financials, resp]});
+          })
+          .catch((error) => ("Error:", error));
+      }
     },
   };
 };

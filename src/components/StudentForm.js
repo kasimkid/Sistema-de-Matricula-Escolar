@@ -4,11 +4,7 @@ import { Context } from "../store/appContext";
 import "../style/studentform.css"
 
 export const StudentForm = () => {
-
     const { actions } = useContext(Context)
-
-
-
     const [formData, setFormData] = useState({
         rut:"",
         name: "",
