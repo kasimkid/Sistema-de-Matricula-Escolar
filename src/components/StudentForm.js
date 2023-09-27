@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../style/studentform.css"
+import "../styles/studentform.css"
 
 export const StudentForm = () => {
     const { actions } = useContext(Context)
@@ -27,7 +27,6 @@ export const StudentForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
         actions.formStudents(formData);
         setFormData({
             rut:"",

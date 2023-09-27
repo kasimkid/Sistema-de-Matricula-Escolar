@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const GuardianForm = () => {
-
     const { actions } = useContext(Context)
     const [formData, setFormData] = useState({
         rut_financial: "",
@@ -23,7 +22,6 @@ export const GuardianForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
         actions.formFinancial(formData);
         setFormData({
             rut_financial: "",
@@ -55,13 +53,14 @@ export const GuardianForm = () => {
             </div>
             <div className="form-group">
                 <label htmlFor="address">Dirección:</label>
-                <input type="text" className="form-control" id="address" name="address" onChange={handleChange} value={formData.address}/>
+                <input type="text" className="form-control" id="address" name="address" onChange={handleChange} value={formData.address} />
             </div>
             <div className="form-group">
                 <label htmlFor="email_apoderado">Email:</label>
-                <input type="email" className="form-control" id="email" name="email"  onChange={handleChange} value={formData.email}/>
+                <input type="email" className="form-control" id="email" name="email" onChange={handleChange} value={formData.email} />
             </div>
             <button type="submit" className="btn btn-primary">Enviar</button>
         </form>
     )
 }
+
