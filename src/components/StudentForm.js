@@ -71,7 +71,7 @@ export const StudentForm = () => {
                                 <input type="password" className="form-control" id="password" name="password" onChange={handleChange} value={formData.password} required />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="genre">Género:</label>
+                                <label htmlFor="gender">Género:</label>
                                 <select className="form-control" id="gender" name="gender" onChange={handleChange} value={formData.gender}>
                                     <option value="" disabled hidden></option>
                                     <option value="Masculino">Masculino</option>

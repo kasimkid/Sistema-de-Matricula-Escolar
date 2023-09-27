@@ -1,18 +1,17 @@
 .box1{
     width: 300px;
-    height: 200px;
+    height: 180px;
     background-color:#D9D9D9;
     border-radius: 12px;
     box-shadow:2px 2px 8px #130d0d;
-    text-align: center;
+    
 }
 .box2{
     width: 300px;
-    height: 200px;
+    height: 180px;
     background-color:#D9D9D9;
     border-radius: 12px;
     box-shadow:2px 2px 8px #130d0d;
-    text-align: center;
 }
 
 .box-log{
