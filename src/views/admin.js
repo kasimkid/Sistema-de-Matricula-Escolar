@@ -18,6 +18,7 @@ export const Admin = () => {
           </li>
         ))}
       </ul>
+      
       <h2>Lista de Cursos</h2>
       <ul>
         {store.courses.map(course => (

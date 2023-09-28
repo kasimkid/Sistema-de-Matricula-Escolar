@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const GuardianForm = () => {
-    const { actions } = useContext(Context)
+export const AcademicForm = () => {
+    const { actions } = useContext(Context);
+    const { id } = useParams();
     const [formData, setFormData] = useState({
-        rut_financial: "",
+        rut_academic: "",
         name: "",
         last_name: "",
         contact_number: "",
@@ -22,9 +23,13 @@ export const GuardianForm = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        actions.formFinancial(formData);
+        if (id) {
+            actions.editAcademic(id, formData);
+        } else {
+            actions.formAcademic(formData);
+        }
         setFormData({
-            rut_financial: "",
+            rut_academic: "",
             name: "",
             last_name: "",
             contact_number: "",
@@ -36,8 +41,8 @@ export const GuardianForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label htmlFor="rut_financial">Rut:</label>
-                <input type="text" className="form-control" id="rut_financial" name="rut_financial" onChange={handleChange} value={formData.rut_financial} required />
+                <label htmlFor="rut_academic">Rut:</label>
+                <input type="text" className="form-control" id="rut_academic" name="rut_academic" onChange={handleChange} value={formData.rut_academic} required />
             </div>
             <div className="form-group">
                 <label htmlFor="name">Nombres:</label>

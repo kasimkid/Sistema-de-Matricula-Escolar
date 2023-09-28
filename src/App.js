@@ -26,8 +26,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/formstudent" element={<FormStudent />} />
+            <Route path="/formstudent/:id" element={<FormStudent />} />
             <Route path="/formfinanciero" element={<FormFinancial />} />
+            <Route path="/formfinanciero/:id" element={<FormFinancial />} />
             <Route path="/formacademico" element={<FormAcademic />} />
+            <Route path="/formacademico/:id" element={<FormAcademic />} />
             <Route path="/cursos" element={<HistoryStudent />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<h1>Not found!</h1>} />

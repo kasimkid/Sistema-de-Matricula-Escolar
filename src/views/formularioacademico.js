@@ -1,10 +1,10 @@
 import React from 'react'
-import { GuardianForm } from '../components/GuardianForm'
+import { AcademicForm } from '../components/AcademicForm'
 
 export const FormAcademic = () => {
     return (
         <>
-                <GuardianForm />
+                <AcademicForm />
         </>
 
 
