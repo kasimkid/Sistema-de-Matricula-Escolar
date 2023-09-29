@@ -5,7 +5,7 @@ export const Login = () => {
     <>
       <section className="box-log row">
         <div className="mt-3">
-          <label for="text" className="form-control-label">
+          <label htmlFor="text" className="form-control-label">
             Ingrese su Rut
           </label>
           <div>
@@ -14,12 +14,12 @@ export const Login = () => {
               className="form-control input-rut"
               id="rut-number"
               placeholder="Rut"
-              requerid
+              required
             />
           </div>
         </div>
         <div className="mb-3">
-          <label for="inputPassword" className="form-label">
+          <label htmlFor="inputPassword" className="form-label">
             Contraseña
           </label>
           <div>
@@ -28,7 +28,7 @@ export const Login = () => {
               className="form-control input-pass"
               id="inputPassword"
               placeholder="password"
-              requerid
+              required
             />
           </div>
           <div className="d-flex justify-content-center">

@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const AcademicForm = () => {
-    const { actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     const { id } = useParams();
     const [formData, setFormData] = useState({
         rut_academic: "",
@@ -11,7 +11,8 @@ export const AcademicForm = () => {
         last_name: "",
         contact_number: "",
         address: "",
-        email: ""
+        email: "",
+        student_id: ""
     });
 
     const handleChange = (event) => {
@@ -34,9 +35,13 @@ export const AcademicForm = () => {
             last_name: "",
             contact_number: "",
             address: "",
-            email: ""
+            email: "",
+            student_id: ""
         })
-    }
+    };
+    useEffect(() => {
+        actions.getStudents();
+    }, [])
 
     return (
         <form onSubmit={handleSubmit}>
@@ -48,9 +53,17 @@ export const AcademicForm = () => {
                 <label htmlFor="name">Nombres:</label>
                 <input type="text" className="form-control" id="name" name="name" onChange={handleChange} value={formData.name} required />
             </div>
-            <div className="form-group">name_financial
+            <div className="form-group">
                 <label htmlFor="last_name">Apellidos:</label>
                 <input type="text" className="form-control" id="last_name" name="last_name" onChange={handleChange} value={formData.last_name} required />
+            </div>
+            <div className="form-group">
+                <label htmlFor="student">Estudiante:</label>
+                <select className="form-control" id="student_id" name="student_id" onChange={handleChange} value={formData.student_id}>
+                    <option value="" disabled hidden></option>
+                    {store.students.map(student => (
+                    <option key={student.id} value={student.id}>{`${student.name} ${student.last_name} ${student.rut}`}</option>))}
+                </select>
             </div>
             <div className="form-group">
                 <label htmlFor="contact_number">Número de Contacto:</label>
