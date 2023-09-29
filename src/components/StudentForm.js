@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css"
 
@@ -16,7 +16,7 @@ export const StudentForm = () => {
         address: "",
         email: "",
         health_system: "",
-        observation: ""
+        observation: "",
     });
 
     const handleChange = (event) => {
@@ -43,16 +43,17 @@ export const StudentForm = () => {
             address: "",
             email: "",
             health_system: "",
-            observation: ""
+            observation: "",
+            student_id: ""
         })
     }
 
-    useEffect(() => {
-        // Cargar los datos del estudiante al montar el componente
-        if (id) {
-            actions.editStudent(); 
-        }
-      }, [id]);
+    // useEffect(() => {
+    //     // Cargar los datos del estudiante al montar el componente
+    //     if (id) {
+    //         actions.editStudent(); 
+    //     }
+    //   }, [id]);
 
     return (
 
@@ -84,6 +85,7 @@ export const StudentForm = () => {
                                 <option value="Femenino">Femenino</option>
                             </select>
                         </div>
+                        
                         <div className="form-group">
                             <label htmlFor="birthday">Fecha de Nacimiento:</label>
                             <input type="date" className="form-control" id="birthday" name="birthday" onChange={handleChange} value={formData.birthday} />
