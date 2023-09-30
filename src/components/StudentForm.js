@@ -48,12 +48,6 @@ export const StudentForm = () => {
         })
     }
 
-    // useEffect(() => {
-    //     // Cargar los datos del estudiante al montar el componente
-    //     if (id) {
-    //         actions.editStudent(); 
-    //     }
-    //   }, [id]);
 
     return (
 

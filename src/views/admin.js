@@ -8,20 +8,20 @@ export const Admin = () => {
   const [showCourses, setShowCourses] = useState(false);
 
   const toggleStudents = () => {
-  if (!showStudents) {
-    actions.getStudents();
-  }
-  setShowStudents(!showStudents);
-  setShowCourses(false);
-};
+    if (!showStudents) {
+      actions.getStudents();
+    }
+    setShowStudents(!showStudents);
+    setShowCourses(false);
+  };
 
-const toggleCourses = () => {
-  if (!showCourses) {
-    actions.getCourse();
-  }
-  setShowCourses(!showCourses);
-  setShowStudents(false);
-};
+  const toggleCourses = () => {
+    if (!showCourses) {
+      actions.getCourse();
+    }
+    setShowCourses(!showCourses);
+    setShowStudents(false);
+  };
 
   // useEffect(() => {
   //   if (showStudents) {
@@ -30,7 +30,7 @@ const toggleCourses = () => {
   //     actions.getCourse();
   //   }
   // }, [showStudents, showCourses, actions]);
-
+  console.log(store.students)
   return (
     <div>
       <button onClick={toggleStudents}>Estudiantes</button>
@@ -39,9 +39,16 @@ const toggleCourses = () => {
         <ul>
           {store.students.map(student => (
             <li key={student.id}>
+              {student.name}
               <Link to={`/formstudent/${student.id}`}>
                 {`${student.id} ${student.name} ${student.last_name} ${student.rut}`}
               </Link>
+              <div>
+                <strong>Apoderado Financiero:</strong> {student.apfinancial_name} {student.apfinancial_last_name}
+              </div>
+              <div>
+                <strong>Apoderado Académico:</strong> {student.apacademic_name} {student.apacademic_last_name}
+              </div>
             </li>
           ))}
         </ul>

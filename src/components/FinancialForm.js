@@ -39,6 +39,7 @@ export const FinancialForm = () => {
     };
     useEffect(() => {
         actions.getStudents();
+        console.log("store.students", store.students)
       }, [])
 
     return (
