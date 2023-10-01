@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState} from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css";
@@ -37,6 +37,7 @@ export const StudentForm = () => {
 
   return (
     <div className="container">
+      <h3 className="text-center">Datos del estudiante</h3>
       <div className="row">
         <form
           className="d-flex justify-content-center gap-3 w-75"
@@ -63,7 +64,6 @@ export const StudentForm = () => {
                 id="name"
                 name="name"
                 onChange={actions.dataStudent}
-                
                 value={store.data.student.name}
                 required
               />
@@ -76,7 +76,6 @@ export const StudentForm = () => {
                 id="last_name"
                 name="last_name"
                 onChange={actions.dataStudent}
-               
                 value={store.data.student.last_name}
                 required
               />
@@ -89,7 +88,6 @@ export const StudentForm = () => {
                 id="password"
                 name="password"
                 onChange={actions.dataStudent}
-                
                 value={store.data.student.password}
                 required
               />
@@ -101,7 +99,6 @@ export const StudentForm = () => {
                 id="gender"
                 name="gender"
                 onChange={actions.dataStudent}
-                
                 value={store.data.student.gender}
               >
                 <option value="" disabled hidden></option>
@@ -119,7 +116,6 @@ export const StudentForm = () => {
                 id="birthday"
                 name="birthday"
                 onChange={actions.dataStudent}
-                
                 value={store.data.student.birthday}
               />
             </div>
@@ -131,10 +127,8 @@ export const StudentForm = () => {
                 id="address"
                 name="address"
                 onChange={actions.dataStudent}
-                
                 value={store.data.student.address}
               />
-              S
             </div>
             <div className="form-group">
               <label htmlFor="email">Email:</label>
@@ -144,7 +138,6 @@ export const StudentForm = () => {
                 id="email"
                 name="email"
                 onChange={actions.dataStudent}
-               
                 value={store.data.student.email}
               />
             </div>
@@ -155,7 +148,6 @@ export const StudentForm = () => {
                 id="health_system"
                 name="health_system"
                 onChange={actions.dataStudent}
-               
                 value={store.data.student.health_system}
               >
                 <option value="" disabled hidden></option>
@@ -174,7 +166,6 @@ export const StudentForm = () => {
                 name="observation"
                 maxLength="250"
                 onChange={actions.dataStudent}
-                
                 value={store.data.student.observation}
               ></textarea>
             </div>

@@ -3,7 +3,6 @@ import { StudentForm } from "../components/StudentForm";
 // import { clippingParents } from "@popperjs/core";
 const url = process.env.REACT_APP_API_URL;
 const urlCreateAccount = process.env.REACT_APP_API_URL_CREATE_ACCOUNT;
-// const urlCreateCourse = process.env.REACT_APP_API_URL_CREATE_COURSE;
 const urlUpdateStudent = process.env.REACT_APP_API_URL_UPDATE_STUDENT;
 const urlEditStudent = process.env.REACT_APP_API_URL_EDIT_STUDENT;
 const urlUpdateFinancial = process.env.REACT_APP_API_URL_UPDATE_FINANCIAL;
@@ -225,7 +224,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
       },
 
-      // GETS
+      // GETS all students
       getStudents: () => {
         console.log(`${url}${urlGetStudents}`)
         fetch(`${url}${urlGetStudents}`)
@@ -244,6 +243,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
+      //All Courses
       getCourse: () => {
         console.log(`${url}${urlGetCourses}`)
         fetch(`${url}${urlGetCourses}`)
@@ -271,7 +271,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             ...store.data,
             student: {
               ...store.data.student,
-              [event.target.name]: event.target.value,
+              [event.target.name]: event.target.value
             },
           },
         });
