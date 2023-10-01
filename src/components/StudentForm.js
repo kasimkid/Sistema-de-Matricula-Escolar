@@ -38,9 +38,9 @@ export const StudentForm = () => {
   return (
     <div className="container">
       <h3 className="text-center">Datos del estudiante</h3>
-      <div className="row">
+      <div className="row d-flex ">
         <form
-          className="d-flex justify-content-center gap-3 w-75"
+          className="gap-3 w-75"
           onSubmit={handleSubmit}
         >
           <div className="col-md-6">

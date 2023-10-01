@@ -8,7 +8,7 @@ export const Login = () => {
     <>
       <section className="box-log row">
         <form>
-          <div className="mt-3">
+          <div className="mt-5">
             <label htmlFor="text" className="form-control-label">
               Ingrese su Rut
             </label>
@@ -36,7 +36,7 @@ export const Login = () => {
               />
             </div>
             <div className="d-flex justify-content-center">
-              <button type="submit" className="btn btn-primary my-2">
+              <button type="submit" className="btn btn-primary mt-3">
                 Ingresar
               </button>
             </div>

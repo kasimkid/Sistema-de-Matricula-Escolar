@@ -43,9 +43,9 @@ export const FinancialForm = () => {
 
   const handleCLose = async () => {
     setShow(false);
-    await actions.dataStudent();
-    await actions.dataFinancial();
-    await actions.dataAcademic();
+    await actions.formStudents(store.dataStudent);
+    await actions.formFinancial(store.dataFinancial);
+    await actions.formAcademic(store.dataAcademic);
   };
   const handleShow = () => {
     setShow(true);
@@ -53,7 +53,7 @@ export const FinancialForm = () => {
 
   return (
     <form className="container gap-2 w-50" onSubmit={handleSubmit}>
-      <h3 className="text-center">Datos Apoderado Financiero</h3>
+      <h3 className="text-center">Apoderado Financiero</h3>
       <ModalConfirm
         show={show}
         handleShow={handleShow}
