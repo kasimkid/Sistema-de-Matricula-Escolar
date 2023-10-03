@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css"
+import { Upload } from "./upload";
 
 export const StudentForm = () => {
     const { actions } = useContext(Context)
@@ -17,15 +18,18 @@ export const StudentForm = () => {
         email: "",
         health_system: "",
         observation: "",
+        url_img: ""
     });
+
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
-        console.log("formdata ", formData)
-
     };
 
+
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         if (id) {
@@ -79,7 +83,7 @@ export const StudentForm = () => {
                                 <option value="Femenino">Femenino</option>
                             </select>
                         </div>
-                        
+
                         <div className="form-group">
                             <label htmlFor="birthday">Fecha de Nacimiento:</label>
                             <input type="date" className="form-control" id="birthday" name="birthday" onChange={handleChange} value={formData.birthday} />
@@ -109,7 +113,9 @@ export const StudentForm = () => {
                             <label htmlFor="observation">Observación:</label>
                             <textarea className="form-control" id="observation" name="observation" maxLength="250" onChange={handleChange} value={formData.observation}></textarea>
                         </div>
+                        <Upload />
                         <button type="submit" className="btn btn-primary mt-2">Enviar</button>
+                        
                     </div>
                 </form>
             </div>
