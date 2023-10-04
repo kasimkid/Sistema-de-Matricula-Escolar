@@ -11,7 +11,7 @@ function ModalConfirm({ show, handleClose}) {
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Guardar nuevo estudiante</Modal.Title>
+                    <Modal.Title>Guardar Datos</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>¿Está seguro de guardar los cambios?</Modal.Body>
                 <Modal.Footer>

@@ -23,36 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       academic: "",
       courses: [],
       course: "",
-      data: {
-        student: {
-          rut: "",
-          name: "",
-          password: "",
-          last_name: "",
-          gender: "",
-          birthday: "",
-          address: "",
-          email: "",
-          health_system: "",
-          observation: "",
-        },
-        academic: {
-          rut_academic: "",
-          name: "",
-          last_name: "",
-          contact_number: "",
-          address: "",
-          email: ""
-        },
-        finalcial: {
-          rut_financial: "",
-          name: "",
-          last_name: "",
-          contact_number: "",
-          address: "",
-          email: ""
-        }
-      }
+
     },
     actions: {
       // POST
@@ -89,9 +60,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((data) => {
             if (!data.ok) {
-              throw new Error('Error al crear al estudiante');
-            }
-            return data.json();
+                throw new Error('Error al crear al estudiante');
+              }
+              return data.json();
           })
           .then((resp) => {
             setStore({ students: [...store.students, resp] });
@@ -264,47 +235,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       //=== Save data Students, Academic and Financial
 
-      dataStudent: (event) => {
-        const store = getStore();
-        setStore({
-          data: {
-            ...store.data,
-            student: {
-              ...store.data.student,
-              [event.target.name]: event.target.value
-            },
-          },
-        });
-        console.log("students", store.data);
-      },
+      // dataStudent: (event) => {
+      //   const store = getStore();
+      //   setStore({
+      //     data: {
+      //       ...store.data,
+      //       student: {
+      //         ...store.data.student,
+      //         [event.target.name]: event.target.value
+      //       },
+      //     },
+      //   });
+      //   console.log("students", store.data);
+      // },
 
-      dataAcademic: (event) => {
-        const store = getStore();
-        setStore({
-          data: {
-            ...store.data,
-            academic: {
-              ...store.data.academic,
-              [event.target.name]: event.target.value,
-            },
-          },
-        });
-        console.log("academic", store.data);
-      },
+      // dataAcademic: (event) => {
+      //   const store = getStore();
+      //   setStore({
+      //     data: {
+      //       ...store.data,
+      //       academic: {
+      //         ...store.data.academic,
+      //         [event.target.name]: event.target.value,
+      //       },
+      //     },
+      //   });
+      //   console.log("academic", store.data);
+      // },
 
-      dataFinancial: (event) => {
-        const store = getStore();
-        setStore({
-          data: {
-            ...store.data,
-            financial: {
-              ...store.data.financial,
-              [event.target.name]: event.target.value,
-            },
-          },
-        });
-        console.log("financial", store.data);
-      },
+      // dataFinancial: (event) => {
+      //   const store = getStore();
+      //   setStore({
+      //     data: {
+      //       ...store.data,
+      //       financial: {
+      //         ...store.data.financial,
+      //         [event.target.name]: event.target.value,
+      //       },
+      //     },
+      //   });
+      //   console.log("financial", store.data);
+      // },
 
     },
   };
