@@ -3,23 +3,24 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const AcademicForm = () => {
-  const { store, actions } = useContext(Context);
-  const { id } = useParams();
-  const [formData, setFormData] = useState({
-    rut_academic: "",
-    name: "",
-    last_name: "",
-    contact_number: "",
-    address: "",
-    email: "",
-  });
+    const { store, actions } = useContext(Context);
+    const { id } = useParams();
+    const [formData, setFormData] = useState({
+        rut_academic: "",
+        name: "",
+        last_name: "",
+        contact_number: "",
+        address: "",
+        email: "",
+        student_id: ""
+    });
 
-  // const handleChange = (event) => {
-  //     const { name, value } = event.target;
-  //     setFormData({ ...formData, [name]: value });
-  //     console.log("formdata ", formData)
+  const handleChange = (event) => {
+      const { name, value } = event.target;
+      setFormData({ ...formData, [name]: value });
+      console.log("formdata ", formData)
 
-  // };
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,6 +36,8 @@ export const AcademicForm = () => {
       contact_number: "",
       address: "",
       email: "",
+      student_id: ""
+
     });
   };
 
@@ -82,6 +85,14 @@ export const AcademicForm = () => {
             required
           />
         </div>
+        <div className="form-group">
+                <label htmlFor="student">Estudiante:</label>
+                <select className="form-control" id="student_id" name="student_id" onChange={handleChange} value={formData.student_id}>
+                    <option value="" disabled hidden></option>
+                    {store.students.map(student => (
+                    <option key={student.id} value={student.id}>{`${student.name} ${student.last_name} ${student.rut}`}</option>))}
+                </select>
+            </div>
         <div className="form-group">
           <label htmlFor="contact_number">Número de Contacto:</label>
           <input
@@ -132,3 +143,5 @@ export const AcademicForm = () => {
     </div>
   );
 };
+    
+
