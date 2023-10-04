@@ -39,9 +39,13 @@ export const AcademicForm = () => {
   };
 
   return (
-    <div>
-      <form className="container gap-2 w-50" onSubmit={handleSubmit}>
+    <div className="container">
       <h3 className="text-center">Apoderado Académico</h3>
+      <form
+        className="row d-flex justify-content-center"
+        onSubmit={handleSubmit}
+      >
+        <div className="col-12 col-md-6 p-4">
         <div className="form-group">
           <label htmlFor="rut_academic">Rut:</label>
           <input
@@ -111,7 +115,7 @@ export const AcademicForm = () => {
             value={store.data.email}
           />
         </div>
-        <div>
+        <div className="d-flex d-flex justify-content-end ">
           <Link to="/formfinanciero">
             <button type="submit" className="btn btn-primary mt-2 mx-2">
               siguiente
@@ -122,6 +126,7 @@ export const AcademicForm = () => {
               atras
             </button>
           </Link>
+          </div>
         </div>
       </form>
     </div>

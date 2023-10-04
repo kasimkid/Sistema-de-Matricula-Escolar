@@ -1,48 +1,43 @@
 import React from "react";
+import "../styles/home.css";
 
 export const Login = () => {
-  
-
-
   return (
     <>
-      <section className="box-log row">
-        <form>
-          <div className="mt-5">
-            <label htmlFor="text" className="form-control-label">
-              Ingrese su Rut
+      <div className="d-flex justify-content-center">
+        <form className="col-8 p-4 b rounded login">
+          <div className=" mb-3">
+            <label htmlFor="rut-number" className="form-label">
+              Rut
             </label>
-            <div>
-              <input
-                type="text"
-                className="form-control input-rut"
-                id="rut-number"
-                placeholder="Rut"
-                required
-              />
+            <input
+              type="text"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Ingrese su rut"
+            />
+            <div id="emailHelp" className="form-text">
             </div>
           </div>
           <div className="mb-3">
-            <label htmlFor="inputPassword" className="form-label">
-              Contraseña
+            <label htmlFor="password" className="form-label">
+              Password
             </label>
-            <div>
-              <input
-                type="password"
-                className="form-control input-pass"
-                id="inputPassword"
-                placeholder="password"
-                required
-              />
-            </div>
-            <div className="d-flex justify-content-center">
-              <button type="submit" className="btn btn-primary mt-3">
-                Ingresar
-              </button>
-            </div>
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="contraseña"
+            />
+          </div>
+          <div className="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" className="btn btn-success">
+            Ingresar
+          </button>
           </div>
         </form>
-      </section>
+      </div>
     </>
   );
 };

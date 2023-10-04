@@ -8,16 +8,23 @@ export const Home = () => {
     return (
         <>
             <div className=" container mt-4">
-                <section className="row">
-                <div className="col-6">
-                <div className="box1 mt-3"></div>
-                <div className="box2 mt-3"></div>
+
+                <div className='d-flex flex-column-reverse flex-md-row'>
+
+                    <div className='col-12 col-md-6 d-flex flex-column justify-content-center align-items-center'>
+                        <div className="p-3">
+                            <img src="https://picsum.photos/200" className="img-thumbnail" alt="..." />
+                        </div>
+                        <div className="p-3">
+                            <img src="https://picsum.photos/200" className="img-thumbnail" alt="..." />
+                        </div>
+                    </div>
+                    <div className='col-12 col-md-6 d-flex flex-column justify-content-center p-3'>
+                        <Login />
+                    </div>
+
                 </div>
-                <div className=" col-6 d-flex align-items-center">
-                <Login/>
-                </div>
-                <Footer/> 
-                </section>
+                    <Footer />
             </div>
 
         </>

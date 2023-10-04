@@ -52,13 +52,15 @@ export const FinancialForm = () => {
   };
 
   return (
-    <form className="container gap-2 w-50" onSubmit={handleSubmit}>
+    <div className="container">
       <h3 className="text-center">Apoderado Financiero</h3>
+    <form className="row d-flex justify-content-center" onSubmit={handleSubmit}>
       <ModalConfirm
         show={show}
         handleShow={handleShow}
         handleClose={handleCLose}
       />
+  <div className="col-12 col-md-6 p-4">
       <div className="form-group">
         <label htmlFor="rut_financial">Rut:</label>
         <input
@@ -129,7 +131,7 @@ export const FinancialForm = () => {
         />
       </div>
       <div>
-        <>
+        <div className="d-flex d-flex justify-content-end ">
           <button
             type="submit"
             className="btn btn-primary mt-2 mx-2"
@@ -137,13 +139,15 @@ export const FinancialForm = () => {
           >
             Guardar
           </button>
-        </>
         <Link to="/formacademico">
           <button type="submit" className="btn btn-danger mt-2">
             atras
           </button>
         </Link>
+        </div>
+      </div>
       </div>
     </form>
+    </div>
   );
 };

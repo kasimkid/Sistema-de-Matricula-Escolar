@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css";
@@ -38,12 +38,9 @@ export const StudentForm = () => {
   return (
     <div className="container">
       <h3 className="text-center">Datos del estudiante</h3>
-      <div className="row d-flex ">
-        <form
-          className="gap-3 w-75"
-          onSubmit={handleSubmit}
-        >
-          <div className="col-md-6">
+      <div>
+        <form className="row" onSubmit={handleSubmit}>
+          <div className="col-12 col-md-6 p-3">
             <div className="form-group">
               <label htmlFor="rut">Rut:</label>
               <input
@@ -93,7 +90,7 @@ export const StudentForm = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="genre">Género:</label>
+              <label htmlFor="gender">Género:</label>
               <select
                 className="form-control form-control-sm"
                 id="gender"
@@ -107,7 +104,7 @@ export const StudentForm = () => {
               </select>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-md-6 p-3">
             <div className="form-group">
               <label htmlFor="birthday">Fecha de Nacimiento:</label>
               <input
