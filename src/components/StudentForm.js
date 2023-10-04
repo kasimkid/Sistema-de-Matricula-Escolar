@@ -7,6 +7,7 @@ import { Upload } from "./upload";
 export const StudentForm = () => {
     const { actions } = useContext(Context)
     const { id } = useParams();
+    const [imageURL, setImageURL] = useState("");
     const [formData, setFormData] = useState({
         rut: "",
         name: "",
@@ -21,21 +22,22 @@ export const StudentForm = () => {
         url_img: ""
     });
 
-    
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
 
+    const handleImageUpload = (url) => {
+        setImageURL(url); // Almacena la URL de la imagen en el estado
+    };
 
-    
     const handleSubmit = (event) => {
         event.preventDefault();
+        const formDataWithImage = { ...formData, url_img: imageURL };
         if (id) {
-            actions.editStudent(id, formData);
+            actions.editStudent(id, formDataWithImage);
         } else {
-            actions.formStudents(formData);
+            actions.formStudents(formDataWithImage);
         }
         setFormData({
             rut: "",
@@ -48,8 +50,10 @@ export const StudentForm = () => {
             email: "",
             health_system: "",
             observation: "",
+            url_img: "",
             student_id: ""
         })
+        setImageURL("");
     }
 
 
@@ -113,7 +117,7 @@ export const StudentForm = () => {
                             <label htmlFor="observation">Observación:</label>
                             <textarea className="form-control" id="observation" name="observation" maxLength="250" onChange={handleChange} value={formData.observation}></textarea>
                         </div>
-                        <Upload />
+                        <Upload handleImageUpload={handleImageUpload}/>
                         <button type="submit" className="btn btn-primary mt-2">Enviar</button>
                         
                     </div>
