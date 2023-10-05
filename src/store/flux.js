@@ -1,9 +1,10 @@
+import { StudentForm } from "../components/StudentForm";
+
 // import { clippingParents } from "@popperjs/core";
 const url = process.env.REACT_APP_API_URL;
 const urlCreateAccount = process.env.REACT_APP_API_URL_CREATE_ACCOUNT;
-// const urlCreateCourse = process.env.REACT_APP_API_URL_CREATE_COURSE;
 const urlUpdateStudent = process.env.REACT_APP_API_URL_UPDATE_STUDENT;
-const urlEditStudent = process.env.REACT_APP_API_URL_EDIT_STUDENT; 
+const urlEditStudent = process.env.REACT_APP_API_URL_EDIT_STUDENT;
 const urlUpdateFinancial = process.env.REACT_APP_API_URL_UPDATE_FINANCIAL;
 const urlEditFinalcial = process.env.REACT_APP_API_URL_EDIT_FINANCIAL;
 const urlUpdateAcademic = process.env.REACT_APP_API_URL_UPDATE_ACADEMIC;
@@ -21,7 +22,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       academics: [],
       academic: "",
       courses: [],
-      course: ""
+      course: "",
+
     },
     actions: {
       // POST
@@ -33,12 +35,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-Type": "application/json",
           },
         })
-        .then((data) => {
-          if (!data.ok) {
-            throw new Error('Error al crear cuenta');
-          }
-          return data.json();
-        })
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Error al crear cuenta');
+            }
+            return data.json();
+          })
           .then((resp) => console.log(resp))
           .catch((error) => {
             console.log("Error", error)
@@ -56,12 +58,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-Type": "application/json",
           },
         })
-        .then((data) => {
-          if (!data.ok) {
-            throw new Error('Error al crear al estudiante');
-          }
-          return data.json();
-        })
+          .then((data) => {
+            if (!data.ok) {
+                throw new Error('Error al crear al estudiante');
+              }
+              return data.json();
+          })
           .then((resp) => {
             setStore({ students: [...store.students, resp] });
             console.log(resp);
@@ -82,12 +84,12 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-type": "application/json"
           },
         })
-        .then((data) => {
-          if (!data.ok) {
-            throw new Error('Error al crear apoderado financiero');
-          }
-          return data.json();
-        })
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Error al crear apoderado financiero');
+            }
+            return data.json();
+          })
           .then((resp) => {
             setStore({ financials: [...store.financials, resp] });
             console.log(resp)
@@ -108,11 +110,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-type": "application/json"
           },
         })
-        .then((data) => {
-          if (!data.ok) {
-            throw new Error('Error al crear apoderado academico');
-          }
-          return data.json();
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Error al crear apoderado academico');
+            }
+            return data.json();
           })
           .then((resp) => {
             setStore({ academics: [...store.academics, resp] });
@@ -156,18 +158,18 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-Type": "application/json"
           }
         })
-        .then((data) => {
-          if(!data.ok) {
-            throw new Error('Error al actualizar al apoderado financiero');
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Error al actualizar al apoderado financiero');
             }
             return data.json();
-        })
-        .then((resp) => {
-          console.log('Apoderado Financiero actualizado', resp);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
+          })
+          .then((resp) => {
+            console.log('Apoderado Financiero actualizado', resp);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
       },
 
       editAcademic: (id, info) => {
@@ -179,29 +181,29 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-Type": "application/json"
           }
         })
-        .then((data) => {
-          if(!data.ok){
-            throw new Error('Error al actualizar al apoderado academico');
-          }
-          return data.json();
-        })
-        .then((resp) => {
-          console.log('Apoderado Academico actualizado', resp);
-        })
-        .catch((error) => {
-          console.error('Error', error);
-        })
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Error al actualizar al apoderado academico');
+            }
+            return data.json();
+          })
+          .then((resp) => {
+            console.log('Apoderado Academico actualizado', resp);
+          })
+          .catch((error) => {
+            console.error('Error', error);
+          })
       },
 
-      // GETS
+      // GETS all students
       getStudents: () => {
         console.log(`${url}${urlGetStudents}`)
         fetch(`${url}${urlGetStudents}`)
-        .then((data) => {
-          if (!data.ok) {
-            throw new Error('Error al mostrar a los estudiantes');
-          }
-          return data.json();
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Error al mostrar a los estudiantes');
+            }
+            return data.json();
           })
           .then((resp) => {
             setStore({ students: resp });
@@ -212,14 +214,15 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
+      //All Courses
       getCourse: () => {
         console.log(`${url}${urlGetCourses}`)
         fetch(`${url}${urlGetCourses}`)
-        .then((data) => {
-          if (!data.ok) {
-            throw new Error('Error al mostrar los cursos');
-          }
-          return data.json();
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Error al mostrar los cursos');
+            }
+            return data.json();
           })
           .then((resp) => {
             setStore({ courses: resp });
@@ -228,7 +231,52 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch(error => {
             console.error("Error:", error)
           });
-      }
+      },
+
+      //=== Save data Students, Academic and Financial
+
+      // dataStudent: (event) => {
+      //   const store = getStore();
+      //   setStore({
+      //     data: {
+      //       ...store.data,
+      //       student: {
+      //         ...store.data.student,
+      //         [event.target.name]: event.target.value
+      //       },
+      //     },
+      //   });
+      //   console.log("students", store.data);
+      // },
+
+      // dataAcademic: (event) => {
+      //   const store = getStore();
+      //   setStore({
+      //     data: {
+      //       ...store.data,
+      //       academic: {
+      //         ...store.data.academic,
+      //         [event.target.name]: event.target.value,
+      //       },
+      //     },
+      //   });
+      //   console.log("academic", store.data);
+      // },
+
+      // dataFinancial: (event) => {
+      //   const store = getStore();
+      //   setStore({
+      //     data: {
+      //       ...store.data,
+      //       financial: {
+      //         ...store.data.financial,
+      //         [event.target.name]: event.target.value,
+      //       },
+      //     },
+      //   });
+      //   console.log("financial", store.data);
+      // },
+
     },
   };
 };

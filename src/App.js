@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 
 
-import "../src/styles/app.css"
+import "../src/styles/App.css"
 import { Navbar } from './components/Navbar';
 import { Home } from './views/Home';
 import { FormStudent } from "./views/Form-student"

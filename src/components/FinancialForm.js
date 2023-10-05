@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../styles/financialform.css";
+import ModalConfirm from "./ModalConfirm";
 
 export const FinancialForm = () => {
     const { store, actions } = useContext(Context);
@@ -35,49 +37,142 @@ export const FinancialForm = () => {
             email: "",
             student_id: ""
         })
-    
-    };
-    useEffect(() => {
-        actions.getStudents();
-        console.log("store.students", store.students)
-      }, [])
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label htmlFor="rut_financial">Rut:</label>
-                <input type="text" className="form-control" id="rut_financial" name="rut_financial" onChange={handleChange} value={formData.rut_financial} required />
-            </div>
-            <div className="form-group">
-                <label htmlFor="name">Nombres:</label>
-                <input type="text" className="form-control" id="name" name="name" onChange={handleChange} value={formData.name} required />
-            </div>
-            <div className="form-group">
-                <label htmlFor="last_name">Apellidos:</label>
-                <input type="text" className="form-control" id="last_name" name="last_name" onChange={handleChange} value={formData.last_name} required />
-            </div>
-            <div className="form-group">
-                <label htmlFor="student">Estudiante:</label>
-                <select className="form-control" id="student_id" name="student_id" onChange={handleChange} value={formData.student_id}>
-                    <option value="" disabled hidden></option>
-                    {store.students.map(student => (
-                    <option key={student.id} value={student.id}>{`${student.name} ${student.last_name} ${student.rut}`}</option>))}
-                </select>
-            </div>
-            <div className="form-group">
-                <label htmlFor="contact_number">Número de Contacto:</label>
-                <input type="text" className="form-control" id="contact_number" name="contact_number" onChange={handleChange} value={formData.contact_number} />
-            </div>
-            <div className="form-group">
-                <label htmlFor="address">Dirección:</label>
-                <input type="text" className="form-control" id="address" name="address" onChange={handleChange} value={formData.address} />
-            </div>
-            <div className="form-group">
-                <label htmlFor="email_apoderado">Email:</label>
-                <input type="email" className="form-control" id="email" name="email" onChange={handleChange} value={formData.email} />
-            </div>
-            <button type="submit" className="btn btn-primary">Enviar</button>
-        </form>
-    )
-}
+        
+      };
+      const [show, setShow] = useState(false);
 
+      const handleCLose = async () => {
+        setShow(false);
+        // await actions.formStudents();
+        // await actions.formFinancial();
+        // await actions.formAcademic();
+      };
+      const handleShow = () => {
+        setShow(true);
+      };
+    // useEffect(() => {
+    //     actions.getStudents();
+    //   }, [])
+
+  return (
+    <div className="container">
+      <h3 className="text-center">Apoderado Financiero</h3>
+      <form
+        className="row d-flex justify-content-center"
+        onSubmit={handleSubmit}
+      >
+        <ModalConfirm
+          show={show}
+          handleShow={handleShow}
+          handleClose={handleCLose}
+        />
+        <div className="col-12 col-md-6 p-4">
+          <div className="form-group">
+            <label htmlFor="rut_financial">Rut</label>
+            <input
+              type="text"
+              className="form-control form-control-sm"
+              id="rut_financial"
+              name="rut_financial"
+              onChange={handleChange}
+              value={formData.rut_financial}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="name">Nombres</label>
+            <input
+              type="text"
+              className="form-control form-control-sm"
+              id="name"
+              name="name"
+              onChange={handleChange}
+              value={formData.name}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="last_name">Apellidos</label>
+            <input
+              type="text"
+              className="form-control form-control-sm"
+              id="last_name"
+              name="last_name"
+              onChange={handleChange}
+              value={formData.last_name}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="student">Estudiante</label>
+            <select
+              className="form-control"
+              id="student_id"
+              name="student_id"
+              onChange={handleChange}
+              value={formData.student_id}
+            >
+              <option value="" disabled hidden></option>
+              {store.students.map((student) => (
+                <option
+                  key={student.id}
+                  value={student.id}
+                >{`${student.name} ${student.last_name} ${student.rut}`}</option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="contact_number">Número de Contacto</label>
+            <input
+              type="text"
+              className="form-control form-control-sm"
+              id="contact_number"
+              name="contact_number"
+              onChange={handleChange}
+              value={formData.contact_number}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="address">Dirección</label>
+            <input
+              type="text"
+              className="form-control form-control-sm"
+              id="address"
+              name="address"
+              onChange={handleChange}
+              value={formData.address}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email_apoderado">Email</label>
+            <input
+              type="email"
+              className="form-control form-control-sm"
+              id="email"
+              name="email"
+              onChange={handleChange}
+              value={formData.email}
+            />
+          </div>
+          <div>
+            <div className="d-flex d-flex justify-content-end ">
+              <button
+                type="submit"
+                className="btn btn-primary mt-2 mx-2"
+                onClick={handleShow}
+              >
+                Guardar
+              </button>
+              <Link to="/formacademico">
+                <button type="submit" className="btn btn-danger mt-2">
+                  Atras
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+};

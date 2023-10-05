@@ -1,41 +1,43 @@
 import React from "react";
+import "../styles/home.css";
 
 export const Login = () => {
   return (
     <>
-      <section className="box-log row">
-        <div className="mt-3">
-          <label htmlFor="text" className="form-control-label">
-            Ingrese su Rut
-          </label>
-          <div>
+      <div className="d-flex justify-content-center">
+        <form className="col-8 p-4 b rounded login">
+          <div className=" mb-3">
+            <label htmlFor="rut-number" className="form-label">
+              Rut
+            </label>
             <input
               type="text"
-              className="form-control input-rut"
-              id="rut-number"
-              placeholder="Rut"
-              required
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Ingrese su rut"
             />
+            <div id="emailHelp" className="form-text">
+            </div>
           </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="inputPassword" className="form-label">
-            Contraseña
-          </label>
-          <div>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <input
               type="password"
-              className="form-control input-pass"
-              id="inputPassword"
-              placeholder="password"
-              required
+              className="form-control"
+              id="exampleInputPassword1"
+              placeholder="contraseña"
             />
           </div>
-          <div className="d-flex justify-content-center">
-        <button type="submit" className="btn btn-primary my-2 col- ">Ingresar</button>
-        </div>
-        </div>
-      </section>
+          <div className="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" className="btn btn-success">
+            Ingresar
+          </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
