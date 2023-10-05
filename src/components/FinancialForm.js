@@ -5,57 +5,55 @@ import "../styles/financialform.css";
 import ModalConfirm from "./ModalConfirm";
 
 export const FinancialForm = () => {
-  const { store, actions } = useContext(Context);
-  const { id } = useParams();
-  const [formData, setFormData] = useState({
-    rut_financial: "",
-    name: "",
-    last_name: "",
-    contact_number: "",
-    address: "",
-    email: "",
-    student_id: "",
-  });
-
-  const handleChange = (event) => {
-      const { name, value } = event.target;
-      setFormData({ ...formData, [name]: value });
-      console.log("formdata ", formData)
-
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (id) {
-      actions.editFinancial(id, formData);
-    } else {
-      actions.formFinancial(formData);
-    }
-    setFormData({
-      rut_financial: "",
-      name: "",
-      last_name: "",
-      contact_number: "",
-      address: "",
-      email: "",
-      student_id: ""
+    const { store, actions } = useContext(Context);
+    const { id } = useParams();
+    const [formData, setFormData] = useState({
+        rut_financial: "",
+        name: "",
+        last_name: "",
+        contact_number: "",
+        address: "",
+        email: "",
+        student_id: ""
     });
-  };
-  useEffect(() =>{
-    actions.getStudents();
-    console.log("store.students", store.students)
-  },[])
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+        console.log("formdata ", formData)
+    };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (id) {
+            actions.editFinancial(id, formData);
+        } else {
+            actions.formFinancial(formData);
+        }
+        setFormData({
+            rut_financial: "",
+            name: "",
+            last_name: "",
+            contact_number: "",
+            address: "",
+            email: "",
+            student_id: ""
+        })
 
-  const [show, setShow] = useState(false);
+        
+      };
+      const [show, setShow] = useState(false);
 
-  const handleCLose = async () => {
-    setShow(false);
-    await actions.formFinancial();
-  };
-
-  const handleShow = () => {
-    setShow(true);
-  };
+      const handleCLose = async () => {
+        setShow(false);
+        // await actions.formStudents();
+        // await actions.formFinancial();
+        // await actions.formAcademic();
+      };
+      const handleShow = () => {
+        setShow(true);
+      };
+    // useEffect(() => {
+    //     actions.getStudents();
+    //   }, [])
 
   return (
     <div className="container">
