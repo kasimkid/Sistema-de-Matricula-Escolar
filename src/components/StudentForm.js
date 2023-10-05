@@ -5,7 +5,7 @@ import "../styles/studentform.css";
 import { Upload } from "./upload";
 
 export const StudentForm = () => {
-  const { actions } = useContext(Context)
+  const { actions } = useContext(Context);
   const { id } = useParams();
   const [imageURL, setImageURL] = useState("");
   const [formData, setFormData] = useState({
@@ -20,8 +20,7 @@ export const StudentForm = () => {
     health_system: "",
     observation: "",
     url_img: "",
-    student_id: ""
-
+    student_id: "",
   });
 
   const handleChange = (event) => {
@@ -53,12 +52,10 @@ export const StudentForm = () => {
       health_system: "",
       observation: "",
       url_img: "",
-      student_id: ""
-    })
+      student_id: "",
+    });
     setImageURL("");
-  }
-
-
+  };
 
   return (
     <div className="container p-5 mt-5 contenedor shadow">
@@ -181,23 +178,19 @@ export const StudentForm = () => {
                     <option value="Disanfa">Disanfa</option>
                   </select>
                 </div>
-
+                <Upload handleImageUpload={handleImageUpload} />
               </div>
             </div>
           </div>
         </div>
         <div className="row justify-content-center">
-
           <div className="col-10 d-flex d-flex justify-content-end mt-3">
             <button type="submit" className="btn btn-primary mt-2 mx-2 shadow">
               Guardar
             </button>
-
           </div>
         </div>
       </form>
     </div>
   );
 };
-
-

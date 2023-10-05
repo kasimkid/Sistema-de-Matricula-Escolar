@@ -59,7 +59,7 @@ export const Admin = () => {
       {showCourses && (
         <ul>
           {store.courses.map(course => (
-            <li key={course.index}>
+            <li key={course.id}>
               {`${course.course}`}
             </li>
           ))}
