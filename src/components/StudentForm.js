@@ -19,7 +19,9 @@ export const StudentForm = () => {
     email: "",
     health_system: "",
     observation: "",
-    url_img: ""
+    url_img: "",
+    student_id: ""
+
   });
 
   const handleChange = (event) => {
@@ -27,9 +29,9 @@ export const StudentForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // const handleImageUpload = (url) => {
-  //   setImageURL(url); // Almacena la URL de la imagen en el estado
-  // };
+  const handleImageUpload = (url) => {
+    setImageURL(url); // Almacena la URL de la imagen en el estado
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -186,12 +188,12 @@ export const StudentForm = () => {
         </div>
         <div className="row justify-content-center">
 
-        <div className="col-10 d-flex d-flex justify-content-end mt-3">
-          <button type="submit" className="btn btn-primary mt-2 mx-2 shadow">
-            Guardar
-          </button>
-         
-        </div>
+          <div className="col-10 d-flex d-flex justify-content-end mt-3">
+            <button type="submit" className="btn btn-primary mt-2 mx-2 shadow">
+              Guardar
+            </button>
+
+          </div>
         </div>
       </form>
     </div>

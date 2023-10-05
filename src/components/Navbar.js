@@ -5,20 +5,20 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
     <>
-      <nav class="container navbar navbar-expand-lg navbar-light menu-color mt-4">
-        <div class="container ">
+      <nav className="container navbar navbar-expand-lg navbar-light menu-color mt-4">
+        <div className="container ">
           <h4>Sistema de Matricula Escolar</h4>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+          <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul className="navbar-nav">
     
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Menú
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <Link to="/" className="links">
                     <li>Inicio</li>
                   </Link>
@@ -38,33 +38,33 @@ export const Navbar = () => {
         </div>
       </nav>
 
-      {/* <nav className=" container nav-color navbar navbar-expand-lg">
-        <div className="container">
-          <img src="" className="navbar-brand "></img>
+      {/* <nav classNameName=" container nav-color navbar navbar-expand-lg">
+        <div classNameName="container">
+          <img src="" classNameName="navbar-brand "></img>
           <h4>Sistema de Matricula Escolar</h4>
           <button
-            className="navbar-toggler"
+            classNameName="navbar-toggler"
             type="button"
             data-bs-toggle="dopdown"
             aria-expanded="false"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span classNameName="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse justify-content-end"
+            classNameName="collapse navbar-collapse justify-content-end"
             id="navbarNavDropdown"
           >
-            <ul className="navbar-nav">
-              <li className="nav-item dropdown">
+            <ul classNameName="navbar-nav">
+              <li classNameName="nav-item dropdown">
                 <button
-                  className="btn btn- ligth dropdown-toggle"
+                  classNameName="btn btn- ligth dropdown-toggle"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Menu
                 </button>
-                <ul className="dropdown-menu">
+                <ul classNameName="dropdown-menu">
                   <Link to="/">
                     <li>Inicio</li>
                   </Link>
