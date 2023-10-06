@@ -1,5 +1,3 @@
-import { StudentForm } from "../components/StudentForm";
-
 // import { clippingParents } from "@popperjs/core";
 const url = process.env.REACT_APP_API_URL;
 const urlCreateAccount = process.env.REACT_APP_API_URL_CREATE_ACCOUNT;

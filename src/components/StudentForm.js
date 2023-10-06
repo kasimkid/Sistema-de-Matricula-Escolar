@@ -58,7 +58,7 @@ export const StudentForm = () => {
   };
 
   return (
-    <div className="container p-5 mt-5 contenedor shadow">
+    <div className="container p-5 mt-5 box shadow">
       <h2 className="text-center mb-5">Datos del estudiante</h2>
       <form className="" onSubmit={handleSubmit}>
         <div className="row justify-content-center ">
