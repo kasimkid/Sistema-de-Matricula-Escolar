@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css";
 import { Upload } from "./upload";
+import ModalConfirm from "./ModalConfirm";
 
 export const StudentForm = () => {
   const { actions } = useContext(Context);
@@ -57,10 +58,26 @@ export const StudentForm = () => {
     setImageURL("");
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleCLose = async () => {
+    setShow(false);
+    await actions.formStudents();
+  };
+  const handleShow = () => {
+    setShow(true);
+  };
+
   return (
     <div className="container p-5 mt-5 box shadow">
       <h2 className="text-center mb-5">Datos del estudiante</h2>
       <form className="" onSubmit={handleSubmit}>
+        <ModalConfirm
+          show={show}
+          handleShow={handleShow}
+          handleClose={handleCLose}
+        />
+
         <div className="row justify-content-center ">
           <div className="col-10 border border-3 shadow rounded py-2 px-5">
             <div className="row">
@@ -101,6 +118,7 @@ export const StudentForm = () => {
                     required
                   />
                 </div>
+
                 <div className="form-group">
                   <label htmlFor="gender">Género</label>
                   <select
@@ -109,6 +127,7 @@ export const StudentForm = () => {
                     name="gender"
                     onChange={handleChange}
                     value={formData.gender}
+                    required
                   >
                     <option value="" disabled hidden></option>
                     <option value="Masculino">Masculino</option>
@@ -124,6 +143,7 @@ export const StudentForm = () => {
                     maxLength="250"
                     onChange={handleChange}
                     value={formData.observation}
+                    required
                   ></textarea>
                 </div>
               </div>
@@ -137,6 +157,7 @@ export const StudentForm = () => {
                     name="birthday"
                     onChange={handleChange}
                     value={formData.birthday}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -148,6 +169,7 @@ export const StudentForm = () => {
                     name="address"
                     onChange={handleChange}
                     value={formData.address}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -159,6 +181,7 @@ export const StudentForm = () => {
                     name="email"
                     onChange={handleChange}
                     value={formData.email}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -169,6 +192,7 @@ export const StudentForm = () => {
                     name="health_system"
                     onChange={handleChange}
                     value={formData.health_system}
+                    required
                   >
                     <option value="" disabled hidden></option>
                     <option value="Fonasa">Fonasa</option>
@@ -185,8 +209,11 @@ export const StudentForm = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-10 d-flex d-flex justify-content-end mt-3">
-            <button type="submit" className="btn btn-primary mt-2 mx-2 shadow">
+            <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
               Guardar
+            </button>
+            <button type="submit" className="btn btn-danger mt-2 mx-2 shadow">
+              Cancelar
             </button>
           </div>
         </div>
