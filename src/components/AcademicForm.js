@@ -12,7 +12,7 @@ export const AcademicForm = () => {
     contact_number: "",
     address: "",
     email: "",
-    student_id: "",
+    student_id: ""
   });
 
   const handleChange = (event) => {
@@ -35,7 +35,7 @@ export const AcademicForm = () => {
       contact_number: "",
       address: "",
       email: "",
-      student_id: "",
+      student_id: ""
     });
   };
   useEffect(() => {

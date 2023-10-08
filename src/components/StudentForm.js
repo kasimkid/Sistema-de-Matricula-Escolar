@@ -21,6 +21,7 @@ export const StudentForm = () => {
     observation: "",
     url_img: "",
     student_id: "",
+    roll: ""
   });
 
   const handleChange = (event) => {
@@ -53,6 +54,7 @@ export const StudentForm = () => {
       observation: "",
       url_img: "",
       student_id: "",
+      roll: ""
     });
     setImageURL("");
   };

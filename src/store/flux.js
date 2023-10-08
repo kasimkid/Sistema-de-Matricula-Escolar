@@ -1,6 +1,3 @@
-import { StudentForm } from "../components/StudentForm";
-
-// import { clippingParents } from "@popperjs/core";
 const url = process.env.REACT_APP_API_URL;
 const urlCreateAccount = process.env.REACT_APP_API_URL_CREATE_ACCOUNT;
 const urlUpdateStudent = process.env.REACT_APP_API_URL_UPDATE_STUDENT;
@@ -11,6 +8,8 @@ const urlUpdateAcademic = process.env.REACT_APP_API_URL_UPDATE_ACADEMIC;
 const urlEditAcademic = process.env.REACT_APP_API_URL_EDIT_ACADEMIC;
 const urlGetStudents = process.env.REACT_APP_API_URL_GET_STUDENT;
 const urlGetCourses = process.env.REACT_APP_API_URL_GET_COURSE;
+const urlLoginUser = process.env.REACT_APP_API_URL_LOGIN_USER;
+const urlLoginAdmin = process.env.REACT_APP_API_URL_LOGIN_ADMIN;
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -33,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           body: JSON.stringify(info),
           headers: {
             "Content-Type": "application/json",
-          },
+          }
         })
           .then((data) => {
             if (!data.ok) {
@@ -45,6 +44,55 @@ const getState = ({ getStore, getActions, setStore }) => {
           .catch((error) => {
             console.log("Error", error)
           });
+      },
+      login: (info, navigate) => {
+        fetch(`${url}${urlLoginUser}`, {
+          method: "POST",
+          body: JSON.stringify(info),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then((data) => {
+          if(!data.ok){
+            throw new Error('Error al iniciar sesion');
+          }
+          return data.json();
+        })
+        .then((resp) => {
+          console.log(resp);
+          localStorage.setItem("logstudent", JSON.stringify(resp));
+          navigate("/formstudent")
+        })
+        .catch((error) => {
+          console.log("Error", error)
+        });
+      },
+      logout: () => {
+        localStorage.removeItem("logstudent")
+      },
+
+      login_admin: (info) => {
+        console.log('info', info)
+        fetch(`${url}${urlLoginAdmin}`, {
+          method: "POST",
+          body: JSON.stringify(info),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then((data) => {
+          if(!data.ok){
+            throw new Error('Error al iniciar sesion');
+          }
+          return data.json();
+        })
+        .then((resp) => {
+          console.log(resp);
+        })
+        .catch((error) => {
+          console.log("Error", error)
+        });
       },
 
       formStudents: (info) => {
