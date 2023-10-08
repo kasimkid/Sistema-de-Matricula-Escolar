@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import ModalConfirm from "./ModalConfirm";
+// import ModalConfirm from "./ModalConfirm";
 
 export const AcademicForm = () => {
   const { store, actions } = useContext(Context);
@@ -19,7 +19,6 @@ export const AcademicForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    console.log("formdata ", formData);
   };
 
   const handleSubmit = (event) => {
@@ -39,16 +38,19 @@ export const AcademicForm = () => {
       student_id: "",
     });
   };
-  const [show, setShow] = useState(false);
+  useEffect(() => {
+    actions.getStudents();
+  }, []);
+  // const [show, setShow] = useState(false);
 
-  const handleCLose = async () => {
-    setShow(false);
-    // await actions.formFinancial();
+  // const handleCLose = async () => {
+  //   setShow(false);
+  //   // await actions.formFinancial();
   
-  };
-  const handleShow = () => {
-    setShow(true);
-  };
+  // };
+  // const handleShow = () => {
+  //   setShow(true);
+  // };
 
   return (
     <div className="container p-5 mt-5 box shadow">
@@ -57,11 +59,11 @@ export const AcademicForm = () => {
         className=""
         onSubmit={handleSubmit}
       >
-        <ModalConfirm
+        {/* <ModalConfirm
           show={show}
           handleShow={handleShow}
           handleClose={handleCLose}
-        />
+        /> */}
         <div className="row d-flex justify-content-center">
           <div className="col-12 col-md-6 border border-3 shadow rounded p-5 w-50">
             <div className="form-group">

@@ -22,11 +22,11 @@ export const Navbar = () => {
                 <Link to="/" className="links">
                     <li>Inicio</li>
                   </Link>
-                  <Link to="/formacademico" className="links">
-                    <li>Académico</li>
-                  </Link>
                   <Link to="/formfinanciero" className="links">
                     <li>Financiero</li>
+                  </Link>
+                  <Link to="/formacademico" className="links">
+                    <li>Académico</li>
                   </Link>
                   <Link to="/" className="links">
                     <li>Mis Datos</li>

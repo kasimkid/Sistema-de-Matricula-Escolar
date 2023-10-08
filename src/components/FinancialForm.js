@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/financialform.css";
-import ModalConfirm from "./ModalConfirm";
+// import ModalConfirm from "./ModalConfirm";
 
 export const FinancialForm = () => {
   const { store, actions } = useContext(Context);
@@ -16,11 +16,12 @@ export const FinancialForm = () => {
     email: "",
     student_id: "",
   });
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    console.log("formdata ", formData);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (id) {
@@ -38,6 +39,9 @@ export const FinancialForm = () => {
       student_id: "",
     });
   };
+  useEffect(() => {
+    actions.getStudents();
+  }, []);
 
   
   // const [show, setShow] = useState(false);
@@ -107,7 +111,7 @@ export const FinancialForm = () => {
                 value={formData.student_id}
                 required
               >
-                <option value="" disabled hidden re></option>
+                <option value="" disabled hidden></option>
                 {store.students.map((student) => (
                   <option
                     key={student.id}

@@ -16,6 +16,7 @@ export const Login = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Ingrese su rut"
+              required
             />
             <div id="emailHelp" className="form-text">
             </div>
@@ -29,6 +30,7 @@ export const Login = () => {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="contraseña"
+              required
             />
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">

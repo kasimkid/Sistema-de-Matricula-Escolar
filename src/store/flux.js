@@ -205,7 +205,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .then((resp) => {
             setStore({ students: resp });
-            console.log('Data from API:', resp);
           })
           .catch(error => {
             console.error('Error:', error);
@@ -230,51 +229,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error("Error:", error)
           });
       },
-
-      //=== Save data Students, Academic and Financial
-
-      // dataStudent: (event) => {
-      //   const store = getStore();
-      //   setStore({
-      //     data: {
-      //       ...store.data,
-      //       student: {
-      //         ...store.data.student,
-      //         [event.target.name]: event.target.value
-      //       },
-      //     },
-      //   });
-      //   console.log("students", store.data);
-      // },
-
-      // dataAcademic: (event) => {
-      //   const store = getStore();
-      //   setStore({
-      //     data: {
-      //       ...store.data,
-      //       academic: {
-      //         ...store.data.academic,
-      //         [event.target.name]: event.target.value,
-      //       },
-      //     },
-      //   });
-      //   console.log("academic", store.data);
-      // },
-
-      // dataFinancial: (event) => {
-      //   const store = getStore();
-      //   setStore({
-      //     data: {
-      //       ...store.data,
-      //       financial: {
-      //         ...store.data.financial,
-      //         [event.target.name]: event.target.value,
-      //       },
-      //     },
-      //   });
-      //   console.log("financial", store.data);
-      // },
-
     },
   };
 };

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css";
 import { Upload } from "./upload";
-import ModalConfirm from "./ModalConfirm";
 
 export const StudentForm = () => {
   const { actions } = useContext(Context);
@@ -58,26 +57,11 @@ export const StudentForm = () => {
     setImageURL("");
   };
 
-  const [show, setShow] = useState(false);
-
-  const handleCLose = async () => {
-    setShow(false);
-    await actions.formStudents();
-  };
-  const handleShow = () => {
-    setShow(true);
-  };
 
   return (
     <div className="container p-5 mt-5 box shadow">
       <h2 className="text-center mb-5">Datos del estudiante</h2>
       <form className="" onSubmit={handleSubmit}>
-        <ModalConfirm
-          show={show}
-          handleShow={handleShow}
-          handleClose={handleCLose}
-        />
-
         <div className="row justify-content-center ">
           <div className="col-10 border border-3 shadow rounded py-2 px-5">
             <div className="row">

@@ -2,8 +2,8 @@ import React from "react";
 
 export const NewAcount = () => {
   return (
-    <>
-      <section className="box-log row">
+    <div className="d-flex justify-content-center">
+      <form className="w-50 border border-3 shadow rounded p-5">
         <div className="mt-3">
           <label htmlFor="rut-number" className="form-control-label">
             Ingrese su Rut
@@ -65,7 +65,7 @@ export const NewAcount = () => {
             Crear
           </button>
         </div>
-      </section>
-    </>
+      </form>
+      </div>
   );
 };
