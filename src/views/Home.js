@@ -15,9 +15,7 @@ export const Home = () => {
                         <div className="p-3">
                             <img src="https://picsum.photos/200" className="img-thumbnail" alt="..." />
                         </div>
-                        <div className="p-3">
-                            <img src="https://picsum.photos/200" className="img-thumbnail" alt="..." />
-                        </div>
+
                     </div>
                     <div className='col-12 col-md-6 d-flex flex-column justify-content-center p-3'>
                         <Login />

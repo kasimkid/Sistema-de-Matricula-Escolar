@@ -65,7 +65,7 @@ export const AcademicForm = () => {
           handleClose={handleCLose}
         /> */}
         <div className="row d-flex justify-content-center">
-          <div className="col-12 col-md-6 border border-3 shadow rounded p-5 w-50">
+          <div className="col-12 col-md-6 border border-4 shadow rounded p-5 w-50">
             <div className="form-group">
               <label htmlFor="rut_academic">Rut</label>
               <input

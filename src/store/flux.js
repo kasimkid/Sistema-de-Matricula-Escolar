@@ -9,6 +9,7 @@ const urlUpdateAcademic = process.env.REACT_APP_API_URL_UPDATE_ACADEMIC;
 const urlEditAcademic = process.env.REACT_APP_API_URL_EDIT_ACADEMIC;
 const urlGetStudents = process.env.REACT_APP_API_URL_GET_STUDENT;
 const urlGetCourses = process.env.REACT_APP_API_URL_GET_COURSE;
+const urlLoginUser = process.env.REACT_APP_API_URL_LOGIN_USER;
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -21,6 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       academic: "",
       courses: [],
       course: "",
+      dataUser:[]
 
     },
     actions: {
@@ -45,30 +47,73 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      formStudents: (info) => {
+      login: async (info) => {
+        const request = {
+          method: "POST",
+          body: JSON.stringify(info),
+          headers: {
+            "Content-Type": "application/json"
+          }
+          
+        }
+        try{
+          const resp = await fetch("http://localhost:8080/login", request )
+          const data = await resp.json()
+          localStorage.setItem("dataUser", JSON.stringify(data))
+          setStore({ dataUser: data });
+          console.log(data)
+          return data
+        }catch (error){
+          console.log(error)
+        }
+     
+          
+        // .then((data) => {
+        //   if(!data.ok){
+        //     throw new Error('Error al iniciar sesion');
+        //   }
+        //   return data.json();
+        // })
+        // .then((resp) => {
+        //   console.log(resp);
+        //   localStorage.setItem("logstudent", JSON.stringify(resp));
+        // })
+        // .catch((error) => {
+        //   console.log("Error", error)
+        // });
+      },
+
+      formStudents: async (info) => {
         console.log(info)
         const store = getStore()
-        console.log(`${url}${urlUpdateStudent}`)
-        fetch(`${url}${urlUpdateStudent}`, {
+        const token = localStorage.getItem("logstudent");
+        const request = {
           method: "POST",
           body: JSON.stringify(info),
           headers: {
             "Content-Type": "application/json",
+            // Authorization: `Bearer ${token}` 
+            Authorization: "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5Njg3MzY1OCwianRpIjoiNDYxZGJhYjItMzAwMS00YTA1LWIwYTQtNjY0YmVmMmIxNjRlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjI2ODcwMjc4LU0iLCJuYmYiOjE2OTY4NzM2NTgsImV4cCI6MTY5Njg3NDU1OH0.xtfK-Z4DCUSHC8qpK1V3q0emAI1XsOFLhFgYBFS_RBw"
+           
           },
-        })
-          .then((data) => {
-            if (!data.ok) {
-                throw new Error('Error al crear al estudiante');
-              }
-              return data.json();
-          })
-          .then((resp) => {
-            setStore({ students: [...store.students, resp] });
-            console.log(resp);
-          })
-          .catch((error) => {
-            console.log("Error", error)
-          });
+        }
+        const resp = await fetch(`${url}${urlUpdateStudent}`, request)
+        const data = await resp.json()
+        console.log(data)
+        return data
+          // .then((data) => {
+          //   if (!data.ok) {
+          //       throw new Error('Error al crear al estudiante');
+          //     }
+          //   })
+          // .then((resp) => {
+          //   setStore({ students: [...store.students, resp] });
+          //   console.log(resp);
+          //   return resp.json();
+          // })
+          // .catch((error) => {
+          //   console.log("Error", error)
+          // });
       },
 
       formFinancial: (info) => {

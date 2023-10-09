@@ -36,11 +36,13 @@ export const Admin = () => {
   };
 
   return (
+    <>
+    
     <div className="container view-admin">
       <div className="row p-4">
-        <div className="col-2 sidebar">
-          <div className="d-flex flex-column">
-          <button
+        <div className="col-2">
+          <div className="d-flex flex-column ">
+            <button
               type="button"
               className="btn btn-secondary mb-2"
               onClick={toggleNewAccount}
@@ -65,28 +67,24 @@ export const Admin = () => {
           </div>
         </div>
         <div className="col-10">
-          {/* <h2>Estudiantes</h2> */}
-          {/* {showStudents && store.students.length > 0 && (
-            <h2>Lista de Estudiantes</h2>
-          )} */}
+
+
           {showStudents && (
-            <ul className="list-group gap-1 col-md-4 d-flex aling-items-center">
+            <div>
               {store.students.map((student) => (
-                <li className="list-group-item" key={student.id}>
-                  <Link to={`/formstudent/${student.id}`}>
-                    {`${student.id} ${student.name} ${student.last_name} ${student.rut}`}
-                  </Link>
-                  <div>
-                    <strong>Apoderado Financiero:</strong>{" "}
-                    {student.apfinancial_name} {student.apfinancial_last_name}
+                <section className="col-12 my-3 col-lg-3 col-md-4 col-sm-6">
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title" key={student.id}><Link to={`/formstudent/${student.id}`}>
+                        {`${student.name} ${student.last_name} ${student.rut}`}
+                      </Link></h5>
+                      <h6 className="card-subtitle mb-2 text-body-secondary">{`${student.apfinancial_name} ${student.apfinancial_last_name}`}</h6>
+                      <h6 className="card-subtitle mb-2 text-body-secondary">{`${student.apacademic_name} ${student.apacademic_last_name}`}</h6>
+                    </div>
                   </div>
-                  <div>
-                    <strong>Apoderado Académico:</strong>{" "}
-                    {student.apacademic_name} {student.apacademic_last_name}
-                  </div>
-                </li>
+                </section>
               ))}
-            </ul>
+              </div>
           )}
           {showCourses && store.courses.length > 0 && <h2>Lista de Cursos</h2>}
           {showCourses && (
@@ -99,11 +97,12 @@ export const Admin = () => {
               ))}
             </ul>
           )}
-         
+
           {showNewAccount && <NewAcount />}{" "}
           {/* Renderiza NewAcount si showNewAccount es true */}
         </div>
       </div>
     </div>
+    </>
   );
 };

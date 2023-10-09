@@ -1,17 +1,19 @@
 import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css";
 import { Upload } from "./upload";
 
 export const StudentForm = () => {
   const { actions } = useContext(Context);
+  const navigate = useNavigate()
+
   const { id } = useParams();
   const [imageURL, setImageURL] = useState("");
   const [formData, setFormData] = useState({
     rut: "",
     name: "",
-    password: "",
+    password: "123456",
     last_name: "",
     gender: "",
     birthday: "",
@@ -32,29 +34,33 @@ export const StudentForm = () => {
     setImageURL(url); // Almacena la URL de la imagen en el estado
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formDataWithImage = { ...formData, url_img: imageURL };
     if (id) {
       actions.editStudent(id, formDataWithImage);
     } else {
-      actions.formStudents(formDataWithImage);
+      const respuesta = await actions.formStudents(formDataWithImage);
+
+      console.log(respuesta)
+    
+      setFormData({
+        rut: "",
+        name: "",
+        password: "",
+        last_name: "",
+        gender: "",
+        birthday: "",
+        address: "",
+        email: "",
+        health_system: "",
+        observation: "",
+        url_img: "",
+        student_id: "",
+      });
+      setImageURL("");
+      navigate("/my-app/formfinanciero")
     }
-    setFormData({
-      rut: "",
-      name: "",
-      password: "",
-      last_name: "",
-      gender: "",
-      birthday: "",
-      address: "",
-      email: "",
-      health_system: "",
-      observation: "",
-      url_img: "",
-      student_id: "",
-    });
-    setImageURL("");
   };
 
 
@@ -63,7 +69,7 @@ export const StudentForm = () => {
       <h2 className="text-center mb-5">Datos del estudiante</h2>
       <form className="" onSubmit={handleSubmit}>
         <div className="row justify-content-center ">
-          <div className="col-10 border border-3 shadow rounded py-2 px-5">
+          <div className="col-10 border border-4 shadow rounded py-2 px-5">
             <div className="row">
               <div className="col-12 col-md-6 p-3">
                 <div className="form-group">
@@ -196,9 +202,9 @@ export const StudentForm = () => {
             <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
               Guardar
             </button>
-            <button type="submit" className="btn btn-danger mt-2 mx-2 shadow">
+            <Link to="/" className="btn btn-danger mt-2 mx-2 shadow">
               Cancelar
-            </button>
+            </Link>
           </div>
         </div>
       </form>

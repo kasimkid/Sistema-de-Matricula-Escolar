@@ -1,11 +1,46 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../styles/home.css";
+import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
+
 
 export const Login = () => {
+  const {store, actions } = useContext(Context)
+  const navigate = useNavigate()
+
+  const [log, setLog] = useState({
+    rut:"",
+    password:""
+  })  
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setLog({ ...log, [name]: value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+ 
+    const loginUser = await actions.login(log)
+
+    if(!loginUser.data){
+      return 
+    }
+    if (loginUser.data.roll === 1){
+      navigate ("/my-app/admin")
+    }
+    else{
+      navigate("/my-app/formstudent")
+    }
+    setLog()
+    console.log(loginUser.data.roll)
+  }
+
+
+
   return (
     <>
       <div className="d-flex justify-content-center">
-        <form className="col-8 p-4 b rounded login">
+        <form className="col-8 p-4 b rounded login" onSubmit={handleSubmit}>
           <div className=" mb-3">
             <label htmlFor="rut-number" className="form-label">
               Rut
@@ -13,13 +48,13 @@ export const Login = () => {
             <input
               type="text"
               className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+              id="rut-number"
+              name="rut"
               placeholder="Ingrese su rut"
+              onChange={handleChange}
+              value={log.rut}
               required
             />
-            <div id="emailHelp" className="form-text">
-            </div>
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
@@ -28,15 +63,26 @@ export const Login = () => {
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              name="password"
+              id="password"
               placeholder="contraseña"
+              onChange={handleChange}
+              value={log.password}
               required
             />
+            {/* <div className="form-group form-check mt-2">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="exampleCheck1"
+              />
+              <label className="form-check-label">Soy Estudiante</label>
+            </div> */}
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" className="btn btn-success">
-            Ingresar
-          </button>
+            <button type="" className="btn btn-success">
+              Ingresar
+            </button>
           </div>
         </form>
       </div>
