@@ -31,12 +31,12 @@ function App() {
               <Route path="/my-app/admin" element={<Admin />} />
               <Route path="/my-app/formstudent" element={<FormStudent />} />
               <Route path="/my-app/formfinanciero" element={<FormFinancial />} />
+              <Route path="/my-app/formacademico" element={<FormAcademic />} />
 
             </Route>
 
             <Route path="/formstudent/:id" element={<FormStudent />} />
             <Route path="/formfinanciero/:id" element={<FormFinancial />} />
-            <Route path="/formacademico" element={<FormAcademic />} />
             <Route path="/formacademico/:id" element={<FormAcademic />} />
             <Route path="/cursos" element={<HistoryStudent />} />
             {/* <Route path="/admin" element={<Admin />} /> */}

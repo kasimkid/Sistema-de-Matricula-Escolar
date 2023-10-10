@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-// import ModalConfirm from "./ModalConfirm";
+
 
 export const AcademicForm = () => {
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
   const { id } = useParams();
   const [formData, setFormData] = useState({
     rut_academic: "",
@@ -37,20 +38,13 @@ export const AcademicForm = () => {
       email: "",
       student_id: "",
     });
+    navigate("/")
+
   };
   useEffect(() => {
     actions.getStudents();
   }, []);
-  // const [show, setShow] = useState(false);
 
-  // const handleCLose = async () => {
-  //   setShow(false);
-  //   // await actions.formFinancial();
-  
-  // };
-  // const handleShow = () => {
-  //   setShow(true);
-  // };
 
   return (
     <div className="container p-5 mt-5 box shadow">
@@ -59,11 +53,6 @@ export const AcademicForm = () => {
         className=""
         onSubmit={handleSubmit}
       >
-        {/* <ModalConfirm
-          show={show}
-          handleShow={handleShow}
-          handleClose={handleCLose}
-        /> */}
         <div className="row d-flex justify-content-center">
           <div className="col-12 col-md-6 border border-4 shadow rounded p-5 w-50">
             <div className="form-group">
@@ -161,12 +150,12 @@ export const AcademicForm = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-6 d-flex d-flex justify-content-end mt-3">
-            <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
+          <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
               Guardar
-            </button>
-            <button type="submit" className="btn btn-danger mt-2 mx-2 shadow">
+              </button>
+              <Link to="/formstudent" className="btn btn-danger mt-2 mx-2 shadow">
               Cancelar
-            </button>
+            </Link>
           </div>
         </div>
       </form>

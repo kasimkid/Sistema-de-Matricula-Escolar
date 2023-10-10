@@ -93,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: {
             "Content-Type": "application/json",
             // Authorization: `Bearer ${token}` 
-            Authorization: "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5Njg3MzY1OCwianRpIjoiNDYxZGJhYjItMzAwMS00YTA1LWIwYTQtNjY0YmVmMmIxNjRlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjI2ODcwMjc4LU0iLCJuYmYiOjE2OTY4NzM2NTgsImV4cCI6MTY5Njg3NDU1OH0.xtfK-Z4DCUSHC8qpK1V3q0emAI1XsOFLhFgYBFS_RBw"
+            // Authorization: "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5Njg3MzY1OCwianRpIjoiNDYxZGJhYjItMzAwMS00YTA1LWIwYTQtNjY0YmVmMmIxNjRlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjI2ODcwMjc4LU0iLCJuYmYiOjE2OTY4NzM2NTgsImV4cCI6MTY5Njg3NDU1OH0.xtfK-Z4DCUSHC8qpK1V3q0emAI1XsOFLhFgYBFS_RBw"
            
           },
         }

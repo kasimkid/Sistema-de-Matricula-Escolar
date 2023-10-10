@@ -6,7 +6,7 @@ import { Upload } from "./upload";
 
 export const StudentForm = () => {
   const { actions } = useContext(Context);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { id } = useParams();
   const [imageURL, setImageURL] = useState("");
@@ -201,7 +201,7 @@ export const StudentForm = () => {
           <div className="col-10 d-flex d-flex justify-content-end mt-3">
             <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
               Guardar
-            </button>
+              </button>
             <Link to="/" className="btn btn-danger mt-2 mx-2 shadow">
               Cancelar
             </Link>

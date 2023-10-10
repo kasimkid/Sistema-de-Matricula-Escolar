@@ -4,15 +4,13 @@ import { Context } from "../store/appContext";
 
 
 const RutaProtegida = () => {
-  const { store, actions } = useContext(Context)
+  const { store } = useContext(Context)
 
   const token = store.dataUser.access_token
-  // const userData = store.dataUser?.data.roll
+  // const token = JSON.parse(localStorage.getItem('logstudent'))
 
-  // console.log(userData)
 
   return (
-
     <>
       {
         token ? (<Outlet />) : (<Navigate to="/" />)
