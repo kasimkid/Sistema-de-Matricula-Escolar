@@ -70,14 +70,6 @@ export const Login = () => {
               value={log.password}
               required
             />
-            {/* <div className="form-group form-check mt-2">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-              />
-              <label className="form-check-label">Soy Estudiante</label>
-            </div> */}
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
             <button type="" className="btn btn-success">

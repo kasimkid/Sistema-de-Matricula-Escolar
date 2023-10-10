@@ -13,7 +13,6 @@ export const StudentForm = () => {
   const [formData, setFormData] = useState({
     rut: "",
     name: "",
-    password: "123456",
     last_name: "",
     gender: "",
     birthday: "",
@@ -47,7 +46,6 @@ export const StudentForm = () => {
       setFormData({
         rut: "",
         name: "",
-        password: "",
         last_name: "",
         gender: "",
         birthday: "",
