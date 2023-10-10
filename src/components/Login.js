@@ -1,28 +1,41 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Context } from "../store/appContext";
 import "../styles/home.css";
+import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
+
 
 export const Login = () => {
-  const { actions } = useContext(Context);
-  const navigate = useNavigate();
-  const [loginStudent, setLoginStudent] = useState({
-    rut: "",
-    password: ""
-  });
+  const {actions } = useContext(Context)
+  const navigate = useNavigate()
 
+  const [log, setLog] = useState({
+    rut:"",
+    password:""
+  })  
   const handleChange = (event) => {
-    setLoginStudent({ ...loginStudent, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    setLog({ ...log, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    actions.login(loginStudent, navigate)
-    setLoginStudent({
-      rut: "",
-      password: "",
-    });
+ 
+    const loginUser = await actions.login(log)
+
+    if(!loginUser.data){
+      return 
+    }
+    if (loginUser.data.roll === 1){
+      navigate ("/my-app/admin")
+    }
+    else{
+      navigate("/my-app/formstudent")
+    }
+    setLog()
+    console.log(loginUser.data.roll)
   }
+
+
 
   return (
     <>
@@ -34,16 +47,14 @@ export const Login = () => {
             </label>
             <input
               type="text"
-              name="rut"
               className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+              id="rut-number"
+              name="rut"
               placeholder="Ingrese su rut"
-              value={loginStudent.rut}
               onChange={handleChange}
+              value={log.rut}
+              required
             />
-            <div id="emailHelp" className="form-text">
-            </div>
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
@@ -51,18 +62,27 @@ export const Login = () => {
             </label>
             <input
               type="password"
-              name="password"
               className="form-control"
-              id="exampleInputPassword1"
+              name="password"
+              id="password"
               placeholder="contraseña"
-              value={loginStudent.password}
               onChange={handleChange}
+              value={log.password}
+              required
             />
+            {/* <div className="form-group form-check mt-2">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="exampleCheck1"
+              />
+              <label className="form-check-label">Soy Estudiante</label>
+            </div> */}
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" className="btn btn-success">
-            Ingresar
-          </button>
+            <button type="" className="btn btn-success">
+              Ingresar
+            </button>
           </div>
         </form>
       </div>

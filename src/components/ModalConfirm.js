@@ -9,7 +9,7 @@ function ModalConfirm({ show, handleClose}) {
     return (
         <>
 
-            <Modal show={show} onHide={handleClose}>
+            <ModalConfirm show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Guardar Datos</Modal.Title>
                 </Modal.Header>
@@ -22,7 +22,7 @@ function ModalConfirm({ show, handleClose}) {
                         Guardar
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </ModalConfirm>
         </>
     );
 }

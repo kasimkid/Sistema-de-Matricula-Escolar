@@ -37,7 +37,7 @@ export const Upload = ({handleImageUpload}) => {
                     style={{ display: 'none' }}
                     onChange={handleFileChange}
                 />
-                <button type="button" className="btn btn-success" onClick={() => fileInputRef.current.click()}>Seleccionar imagen</button>
+                <button type="button" className="btn btn-primary shadow mt-2" onClick={() => fileInputRef.current.click()}>Imagen</button>
             </div>
         </>
     );

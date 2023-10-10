@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 .contenedor {
     /* width: 500px; */
     background-color: #91ddd9;
+=======
+.box {
+    background-color: #84c1c9;
+>>>>>>> a03c5c1089687e0f496bcb86d0a3646c86191d2d
     border-radius: 12px;
     margin-top: 12px;
 }
@@ -9,7 +14,3 @@
     margin: 0 10px;
 }
 
-.form-control {
-    background-color: #ffffff;
-    border-radius: 8px;
-}

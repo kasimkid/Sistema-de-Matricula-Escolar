@@ -1,17 +1,19 @@
 import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css";
 import { Upload } from "./upload";
 
 export const StudentForm = () => {
   const { actions } = useContext(Context);
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [imageURL, setImageURL] = useState("");
   const [formData, setFormData] = useState({
     rut: "",
     name: "",
-    password: "",
+    password: "123456",
     last_name: "",
     gender: "",
     birthday: "",
@@ -33,38 +35,42 @@ export const StudentForm = () => {
     setImageURL(url); // Almacena la URL de la imagen en el estado
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formDataWithImage = { ...formData, url_img: imageURL };
     if (id) {
       actions.editStudent(id, formDataWithImage);
     } else {
-      actions.formStudents(formDataWithImage);
+      const respuesta = await actions.formStudents(formDataWithImage);
+
+      console.log(respuesta)
+    
+      setFormData({
+        rut: "",
+        name: "",
+        password: "",
+        last_name: "",
+        gender: "",
+        birthday: "",
+        address: "",
+        email: "",
+        health_system: "",
+        observation: "",
+        url_img: "",
+        student_id: "",
+      });
+      setImageURL("");
+      navigate("/my-app/formfinanciero")
     }
-    setFormData({
-      rut: "",
-      name: "",
-      password: "",
-      last_name: "",
-      gender: "",
-      birthday: "",
-      address: "",
-      email: "",
-      health_system: "",
-      observation: "",
-      url_img: "",
-      student_id: "",
-      roll: ""
-    });
-    setImageURL("");
   };
 
+
   return (
-    <div className="container p-5 mt-5 contenedor shadow">
+    <div className="container p-5 mt-5 box shadow">
       <h2 className="text-center mb-5">Datos del estudiante</h2>
       <form className="" onSubmit={handleSubmit}>
         <div className="row justify-content-center ">
-          <div className="col-10 border border-3 shadow rounded py-2 px-5">
+          <div className="col-10 border border-4 shadow rounded py-2 px-5">
             <div className="row">
               <div className="col-12 col-md-6 p-3">
                 <div className="form-group">
@@ -103,6 +109,7 @@ export const StudentForm = () => {
                     required
                   />
                 </div>
+
                 <div className="form-group">
                   <label htmlFor="gender">Género</label>
                   <select
@@ -111,6 +118,7 @@ export const StudentForm = () => {
                     name="gender"
                     onChange={handleChange}
                     value={formData.gender}
+                    required
                   >
                     <option value="" disabled hidden></option>
                     <option value="Masculino">Masculino</option>
@@ -126,6 +134,7 @@ export const StudentForm = () => {
                     maxLength="250"
                     onChange={handleChange}
                     value={formData.observation}
+                    required
                   ></textarea>
                 </div>
               </div>
@@ -139,6 +148,7 @@ export const StudentForm = () => {
                     name="birthday"
                     onChange={handleChange}
                     value={formData.birthday}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -150,6 +160,7 @@ export const StudentForm = () => {
                     name="address"
                     onChange={handleChange}
                     value={formData.address}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -161,6 +172,7 @@ export const StudentForm = () => {
                     name="email"
                     onChange={handleChange}
                     value={formData.email}
+                    required
                   />
                 </div>
                 <div className="form-group">
@@ -171,6 +183,7 @@ export const StudentForm = () => {
                     name="health_system"
                     onChange={handleChange}
                     value={formData.health_system}
+                    required
                   >
                     <option value="" disabled hidden></option>
                     <option value="Fonasa">Fonasa</option>
@@ -187,9 +200,12 @@ export const StudentForm = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-10 d-flex d-flex justify-content-end mt-3">
-            <button type="submit" className="btn btn-primary mt-2 mx-2 shadow">
+            <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
               Guardar
-            </button>
+              </button>
+            <Link to="/" className="btn btn-danger mt-2 mx-2 shadow">
+              Cancelar
+            </Link>
           </div>
         </div>
       </form>
