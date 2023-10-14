@@ -71,21 +71,7 @@ export const Admin = () => {
 
           {showStudents && (
             <CardStudent/>
-            // <div>
-            //   {store.students.map((student) => (
-            //     <section className="col-12 my-3 col-lg-3 col-md-4 col-sm-6">
-            //       <div className="card">
-            //         <div className="card-body">
-            //           <h5 className="card-title" key={student.id}><Link to={`/formstudent/${student.id}`}>
-            //             {`${student.name} ${student.last_name} ${student.rut}`}
-            //           </Link></h5>
-            //           <h6 className="card-subtitle mb-2 text-body-secondary"><Link to={`/formfinanciero/${student.apfinancial_id}`}>{`${student.apfinancial_name} ${student.apfinancial_last_name}`}</Link></h6>
-            //           <h6 className="card-subtitle mb-2 text-body-secondary"><Link to={`/formacademico/${student.apacademic_id}`}>{`${student.apacademic_name} ${student.apacademic_last_name}`}</Link></h6>
-            //         </div>
-            //       </div>
-            //     </section>
-            //   ))}
-            //   </div>
+
           )}
           {showCourses && store.courses.length > 0 && <h2>Lista de Cursos</h2>}
           {showCourses && (
@@ -94,7 +80,7 @@ export const Admin = () => {
                 <li
                   className="list-group-item"
                   key={course.id}
-                >{`${course.course}`}</li>
+                >{`${course.course_name}: ${course.id.length}/30`}</li>
               ))}
             </ul>
           )}

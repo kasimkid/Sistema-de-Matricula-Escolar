@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css";
 import { Upload } from "./upload";
 
 export const StudentForm = () => {
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -13,7 +13,6 @@ export const StudentForm = () => {
   const [formData, setFormData] = useState({
     rut: "",
     name: "",
-    password: "123456",
     last_name: "",
     gender: "",
     birthday: "",
@@ -23,14 +22,15 @@ export const StudentForm = () => {
     observation: "",
     url_img: "",
     student_id: "",
-    roll: ""
+    roll: "",
+    course_name: ""
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  console.log('formData', formData)
   const handleImageUpload = (url) => {
     setImageURL(url); // Almacena la URL de la imagen en el estado
   };
@@ -44,11 +44,10 @@ export const StudentForm = () => {
       const respuesta = await actions.formStudents(formDataWithImage);
 
       console.log(respuesta)
-    
+
       setFormData({
         rut: "",
         name: "",
-        password: "",
         last_name: "",
         gender: "",
         birthday: "",
@@ -58,13 +57,16 @@ export const StudentForm = () => {
         observation: "",
         url_img: "",
         student_id: "",
+        course_name: ""
       });
       setImageURL("");
       navigate("/my-app/formfinanciero")
     }
   };
 
-
+  useEffect(() => {
+    actions.getCourse(); // Cargar cursos al cargar el componente
+  }, []);
   return (
     <div className="container p-5 mt-5 box shadow">
       <h2 className="text-center mb-5">Datos del estudiante</h2>
@@ -193,6 +195,23 @@ export const StudentForm = () => {
                     <option value="Disanfa">Disanfa</option>
                   </select>
                 </div>
+                <label htmlFor="course_name">Curso:</label>
+                <select
+                  className="form-control form-control-sm"
+                  id="course_name"
+                  name="course_name"
+                  onChange={handleChange}
+                  value={formData.course_name}
+                  required
+                >
+                  <option value="" disabled hidden></option>
+                  {store.courses.map((course) => (
+                    <option
+                      key={course.id}
+                      value={course.course_name}
+                    >{`${course.course_name}`}</option>
+                  ))}
+                </select>
                 <Upload handleImageUpload={handleImageUpload} />
               </div>
             </div>
@@ -202,7 +221,7 @@ export const StudentForm = () => {
           <div className="col-10 d-flex d-flex justify-content-end mt-3">
             <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
               Guardar
-              </button>
+            </button>
             <Link to="/" className="btn btn-danger mt-2 mx-2 shadow">
               Cancelar
             </Link>

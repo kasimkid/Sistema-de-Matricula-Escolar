@@ -10,10 +10,9 @@ import { FormStudent } from "./views/Form-student"
 import { FormFinancial } from './views/formulariofinanciero';
 import { FormAcademic } from './views/formularioacademico';
 import { Admin } from './views/admin';
+import { Student } from "./views/Students";
 import { HistoryStudent } from './views/historialestudiante';
 import RutaProtegida from "./views/RutaProtegida";
-
-
 
 function App() {
   return (
@@ -23,6 +22,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/student/:id" element={<Student />} />
 
             {/* Ruta Privada */}
             <Route path="/my-app" element={<RutaProtegida />}>
