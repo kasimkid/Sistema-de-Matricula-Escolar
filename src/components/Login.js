@@ -27,9 +27,14 @@ export const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
- 
-    const loginUser = await actions.login(log)
-
+    let loginUser;
+    try {
+      loginUser = await actions.login(log)
+      console.log('loginUser', loginUser)
+    }catch(error){
+      console.log(error)
+    }   
+    
     if(!loginUser.data){
       return 
     }
@@ -39,11 +44,12 @@ export const Login = () => {
     else{
       navigate("/my-app/formstudent")
     }
-    setLog()
+    setLog({
+      rut: "",
+      password: ""
+    })
     console.log(loginUser.data.roll)
   }
-
-
 
   return (
     <>

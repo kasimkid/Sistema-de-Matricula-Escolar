@@ -1,4 +1,3 @@
-// import { clippingParents } from "@popperjs/core";
 const url = process.env.REACT_APP_API_URL;
 const urlCreateAccount = process.env.REACT_APP_API_URL_CREATE_ACCOUNT;
 const urlUpdateStudent = process.env.REACT_APP_API_URL_UPDATE_STUDENT;
@@ -8,6 +7,7 @@ const urlEditFinalcial = process.env.REACT_APP_API_URL_EDIT_FINANCIAL;
 const urlUpdateAcademic = process.env.REACT_APP_API_URL_UPDATE_ACADEMIC;
 const urlEditAcademic = process.env.REACT_APP_API_URL_EDIT_ACADEMIC;
 const urlGetStudents = process.env.REACT_APP_API_URL_GET_STUDENT;
+const urlGetInfo = process.env.REACT_APP_API_URL_GET_INFO;
 const urlGetCourses = process.env.REACT_APP_API_URL_GET_COURSE;
 const urlLoginUser = process.env.REACT_APP_API_URL_LOGIN_USER;
 
@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       academic: "",
       courses: [],
       course: "",
-      dataUser:[]
+      dataUser: []
 
     },
     actions: {
@@ -54,35 +54,19 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: {
             "Content-Type": "application/json"
           }
-          
+
         }
-        try{
-          const resp = await fetch("http://localhost:8080/login", request )
+        try {
+          const resp = await fetch(`${url}${urlLoginUser}`, request)
           const data = await resp.json()
           localStorage.setItem("dataUser", JSON.stringify(data))
           setStore({ dataUser: data });
           console.log(data)
           return data
-        }catch (error){
+        } catch (error) {
           console.log(error)
         }
-     
-          
-        // .then((data) => {
-        //   if(!data.ok){
-        //     throw new Error('Error al iniciar sesion');
-        //   }
-        //   return data.json();
-        // })
-        // .then((resp) => {
-        //   console.log(resp);
-        //   localStorage.setItem("logstudent", JSON.stringify(resp));
-        // })
-        // .catch((error) => {
-        //   console.log("Error", error)
-        // });
       },
-
       formStudents: async (info) => {
         console.log(info)
         const store = getStore()
@@ -93,27 +77,31 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: {
             "Content-Type": "application/json",
             // Authorization: `Bearer ${token}` 
+<<<<<<< HEAD
             Authorization: "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5Njg3MzY1OCwianRpIjoiNDYxZGJhYjItMzAwMS00YTA1LWIwYTQtNjY0YmVmMmIxNjRlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjI2ODcwMjc4LU0iLCJuYmYiOjE2OTY4NzM2NTgsImV4cCI6MTY5Njg3NDU1OH0.xtfK-Z4DCUSHC8qpK1V3q0emAI1XsOFLhFgYBFS_RBw"
            
+=======
+            // Authorization: "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY5Njg3MzY1OCwianRpIjoiNDYxZGJhYjItMzAwMS00YTA1LWIwYTQtNjY0YmVmMmIxNjRlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjI2ODcwMjc4LU0iLCJuYmYiOjE2OTY4NzM2NTgsImV4cCI6MTY5Njg3NDU1OH0.xtfK-Z4DCUSHC8qpK1V3q0emAI1XsOFLhFgYBFS_RBw"
+>>>>>>> 29fa8e32f6322910d3ca4a7877dd79dae7a9f3b2
           },
         }
         const resp = await fetch(`${url}${urlUpdateStudent}`, request)
         const data = await resp.json()
         console.log(data)
         return data
-          // .then((data) => {
-          //   if (!data.ok) {
-          //       throw new Error('Error al crear al estudiante');
-          //     }
-          //   })
-          // .then((resp) => {
-          //   setStore({ students: [...store.students, resp] });
-          //   console.log(resp);
-          //   return resp.json();
-          // })
-          // .catch((error) => {
-          //   console.log("Error", error)
-          // });
+        // .then((data) => {
+        //   if (!data.ok) {
+        //       throw new Error('Error al crear al estudiante');
+        //     }
+        //   })
+        // .then((resp) => {
+        //   setStore({ students: [...store.students, resp] });
+        //   console.log(resp);
+        //   return resp.json();
+        // })
+        // .catch((error) => {
+        //   console.log("Error", error)
+        // });
       },
 
       formFinancial: (info) => {
@@ -193,7 +181,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       editFinancial: (id, info) => {
-        console.log(`${url}${urlEditFinalcial}/${id}`)
+        console.log("EDIT FINANCIAL", `${url}${urlEditFinalcial}/${id}`)
         fetch(`${url}${urlEditFinalcial}/${id}`, {
           method: "PUT",
           body: JSON.stringify(info),
@@ -235,9 +223,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .catch((error) => {
             console.error('Error', error);
-          })
+          });
       },
-
       // GETS all students
       getStudents: () => {
         console.log(`${url}${urlGetStudents}`)
@@ -255,7 +242,24 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error('Error:', error);
           });
       },
-
+      getInfo: (id) => {
+        console.log(`${url}${urlGetInfo}`)
+        console.log('urlGetInfo:', urlGetInfo);
+        console.log('id:', id);
+        fetch("http://localhost:8080/info/1")
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Error al mostrar info de estudiantes');
+            }
+            return data.json();
+          })
+          .then((resp) => {
+            setStore({ students: resp });
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      },
       //All Courses
       getCourse: () => {
         console.log(`${url}${urlGetCourses}`)

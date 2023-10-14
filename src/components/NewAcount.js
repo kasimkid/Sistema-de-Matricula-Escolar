@@ -15,6 +15,10 @@ export const NewAcount = () => {
     const { name, value } = event.target;
     setLog({ ...log, [name]: value });
   };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 29fa8e32f6322910d3ca4a7877dd79dae7a9f3b2
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     setLog({ ...log, roll: value }); // Cambiado para solo actualizar el rol
@@ -25,9 +29,21 @@ export const NewAcount = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await actions.createAccount(log)
+<<<<<<< HEAD
  
 
     setLog()
+=======
+
+    setLog({
+      rut: "",
+      password: "",
+      name: "",
+      last_name: "",
+      email: "",
+      roll: ""
+    });
+>>>>>>> 29fa8e32f6322910d3ca4a7877dd79dae7a9f3b2
   }
 
 
@@ -120,14 +136,24 @@ export const NewAcount = () => {
           </div>
         </div>
         <div className="form-check mt-2">
+<<<<<<< HEAD
           <input className="form-check-input" type="checkbox" onChange={handleCheckboxChange} checked={log.roll === "2"} value="2" id="flexCheckDefault" />
           <label className="form-check-label" htmlFor="flexCheckDefault">
+=======
+          <input className="form-check-input" type="checkbox" onChange={handleCheckboxChange} checked={log.roll === "2"} value="2" id="flexCheckStudent" />
+          <label className="form-check-label" htmlFor="flexCheckStudent">
+>>>>>>> 29fa8e32f6322910d3ca4a7877dd79dae7a9f3b2
             Estudiante
           </label>
         </div>
         <div className="form-check">
+<<<<<<< HEAD
           <input className="form-check-input" type="checkbox" onChange={handleCheckboxChange} checked={log.roll === "1"} value="1" id="flexCheckChecked" />
           <label className="form-check-label" htmlFor="flexCheckChecked">
+=======
+          <input className="form-check-input" type="checkbox" onChange={handleCheckboxChange} checked={log.roll === "1"} value="1" id="flexCheckAdmin" />
+          <label className="form-check-label" htmlFor="flexCheckAdmin">
+>>>>>>> 29fa8e32f6322910d3ca4a7877dd79dae7a9f3b2
             Administrador
           </label>
         </div>
