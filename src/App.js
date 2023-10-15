@@ -25,12 +25,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/student/:id" element={<Student />} />
+            <Route path="/my-app/formfinanciero" element={<FormFinancial />} />
 
             {/* Ruta Privada */}
             <Route path="/my-app" element={<RutaProtegida />}>
               <Route path="/my-app/admin" element={<Admin />} />
               <Route path="/my-app/formstudent" element={<FormStudent />} />
-              <Route path="/my-app/formfinanciero" element={<FormFinancial />} />
               <Route path="/my-app/formacademico" element={<FormAcademic />} />
             </Route>
 

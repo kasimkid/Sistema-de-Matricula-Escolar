@@ -9,7 +9,7 @@ const urlEditAcademic = process.env.REACT_APP_API_URL_EDIT_ACADEMIC;
 const urlGetStudents = process.env.REACT_APP_API_URL_GET_STUDENT;
 const urlGetInfo = process.env.REACT_APP_API_URL_GET_INFO;
 const urlGetCourses = process.env.REACT_APP_API_URL_GET_COURSE;
-// const urlLoginUser = process.env.REACT_APP_API_URL_LOGIN_USER;
+const urlLoginUser = process.env.REACT_APP_API_URL_LOGIN_USER;
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -57,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         }
         try {
-          const resp = await fetch(`http://localhost:8080/login`, request)
+          const resp = await fetch(`${url}${urlLoginUser}`, request)
           const data = await resp.json()
           console.log(data)
           localStorage.setItem("dataUser", JSON.stringify(data))

@@ -54,7 +54,7 @@ export const Login = () => {
         });
       return;
     }
-    if (loginUser.data.roll === 1){
+    if (!loginUser.data.roll === 1){
       navigate ("/my-app/admin")
     }
     else{
