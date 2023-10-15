@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-
 export const AcademicForm = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ export const AcademicForm = () => {
     contact_number: "",
     address: "",
     email: "",
-    student_id: ""
+    student_id: "",
   });
 
   const handleChange = (event) => {
@@ -36,23 +35,18 @@ export const AcademicForm = () => {
       contact_number: "",
       address: "",
       email: "",
-      student_id: ""
+      student_id: "",
     });
-    navigate("/")
-
+    navigate("/");
   };
   useEffect(() => {
     actions.getStudents();
   }, []);
 
-
   return (
     <div className="container p-5 mt-5 box shadow">
       <h3 className="text-center mb-5">Apoderado Académico</h3>
-      <form
-        className=""
-        onSubmit={handleSubmit}
-      >
+      <form className="" onSubmit={handleSubmit}>
         <div className="row d-flex justify-content-center">
           <div className="col-12 col-md-6 border border-4 shadow rounded p-5 w-50">
             <div className="form-group">
@@ -150,10 +144,14 @@ export const AcademicForm = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-6 d-flex d-flex justify-content-end mt-3">
-          <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
+            <Link
+              to={"/my-app/formfinanciero"}
+              type="button"
+              className="btn btn-success mt-2 mx-2 shadow"
+            >
               Guardar
-              </button>
-              <Link to="/formstudent" className="btn btn-danger mt-2 mx-2 shadow">
+            </Link>
+            <Link to="/formstudent" className="btn btn-danger mt-2 mx-2 shadow">
               Cancelar
             </Link>
           </div>

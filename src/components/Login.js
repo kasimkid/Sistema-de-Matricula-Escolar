@@ -1,25 +1,22 @@
 import React, { useContext, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../styles/home.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
 
 export const Login = () => {
-
-  const [errors, setErrors] = useState({})
-  const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState (null)
-
-
-
-
+  
   const {actions } = useContext(Context)
   const navigate = useNavigate()
+  
 
   const [log, setLog] = useState({
     rut:"",
     password:""
   })  
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     setLog({ ...log, [name]: value });
@@ -27,16 +24,35 @@ export const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let loginUser;
-    try {
-      loginUser = await actions.login(log)
-      console.log('loginUser', loginUser)
-    }catch(error){
-      console.log(error)
-    }   
-    
-    if(!loginUser.data){
-      return 
+ 
+    const loginUser = await actions.login(log)
+
+    if (!/^\d{7,8}-[\dkK]$/.test(log.rut)) {
+      // alert("rut no valido")
+      toast.error('rut no valido', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      return;
+    }
+    if (!log.password > 6) {
+      toast.error(' password invalido, debe contener mas de 6 caracteres ', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      return;
     }
     if (loginUser.data.roll === 1){
       navigate ("/my-app/admin")
@@ -44,10 +60,7 @@ export const Login = () => {
     else{
       navigate("/my-app/formstudent")
     }
-    setLog({
-      rut: "",
-      password: ""
-    })
+    setLog()
     console.log(loginUser.data.roll)
   }
 
@@ -91,6 +104,7 @@ export const Login = () => {
             </button>
           </div>
         </form>
+        <ToastContainer />
       </div>
     </>
   );

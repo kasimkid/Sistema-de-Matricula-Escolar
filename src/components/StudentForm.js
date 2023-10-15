@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../styles/studentform.css";
 import { Upload } from "./upload";
+import { ToastContainer, toast } from "react-toastify";
 
 export const StudentForm = () => {
   const { store, actions } = useContext(Context);
@@ -32,7 +33,18 @@ export const StudentForm = () => {
   };
   console.log('formData', formData)
   const handleImageUpload = (url) => {
+    toast.success('Imagen creada', {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     setImageURL(url); // Almacena la URL de la imagen en el estado
+
   };
 
   const handleSubmit = async (event) => {
@@ -202,7 +214,7 @@ export const StudentForm = () => {
                   name="course_name"
                   onChange={handleChange}
                   value={formData.course_name}
-                  required
+                // required
                 >
                   <option value="" disabled hidden></option>
                   {store.courses.map((course) => (
@@ -228,6 +240,7 @@ export const StudentForm = () => {
           </div>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };
