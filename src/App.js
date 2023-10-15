@@ -1,6 +1,7 @@
 import injectContext from "./store/appContext";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import "../src/styles/App.css"
@@ -31,6 +32,7 @@ function App() {
               <Route path="/my-app/formstudent" element={<FormStudent />} />
               <Route path="/my-app/formfinanciero" element={<FormFinancial />} />
               <Route path="/my-app/formacademico" element={<FormAcademic />} />
+              {/* <Route path="/my-app/student/:id" element={<Student />} /> */}
 
             </Route>
 

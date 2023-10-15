@@ -12,11 +12,13 @@ export const CardStudent = () => {
 
   return (
     <div className="card-container">
-      <div className="row row-cols-1 row-cols-md-4 g-4">
+      <div className="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-1">
         {store.students.map((student) => (
           <div className="col" key={student.id}>
             <div className="card">
+              <Link to={`/student/${student.id}`}>
               <img src={`${student.url_img}`} className="card-img-top" alt="Card" />
+              </Link>
               <div className="card-body">
                 <h3 className="card-title">Alumno</h3>
                 <h4 className="card-title" key={student.id}>

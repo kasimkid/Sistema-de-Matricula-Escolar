@@ -3,15 +3,7 @@
     height: 180px;
     background-color:#D9D9D9;
     border-radius: 12px;
-    box-shadow:2px 2px 8px #130d0d;
-    
-}
-.box2{
-    width: 300px;
-    height: 180px;
-    background-color:#D9D9D9;
-    border-radius: 12px;
-    box-shadow:2px 2px 8px #130d0d;
+    box-shadow:2px 2px 8px #130d0d;  
 }
 
 .login{
@@ -21,9 +13,8 @@
     
     /* border-radius: 12px;
     box-shadow:2px 2px 8px #130d0d; */
-    
-
 }
+
 .input-rut::placeholder{
     text-align: center;
     background-image: url(../../public/Dni-card.png);
@@ -33,7 +24,6 @@
     align-items: center
 }
 
-
 .input-pass::placeholder{
  
     text-align: center;
@@ -42,4 +32,10 @@
     background-repeat: no-repeat;
     background-position: left center;
     align-items: center
+}
+
+img {
+    justify-content: center;
+    width: 40%;
+    height: 40%;
 }

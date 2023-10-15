@@ -237,11 +237,11 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error('Error:', error);
           });
       },
-      getInfo: (id) => {
+      getInfo: async (id) => {
         console.log(`${url}${urlGetInfo}`)
         console.log('urlGetInfo:', urlGetInfo);
         console.log('id:', id);
-        fetch("http://localhost:8080/info/1")
+        fetch(`${url}${urlGetInfo}/${id}`)
           .then((data) => {
             if (!data.ok) {
               throw new Error('Error al mostrar info de estudiantes');
