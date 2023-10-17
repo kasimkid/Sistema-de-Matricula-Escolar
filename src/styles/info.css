@@ -6,9 +6,14 @@
     font-weight: 500;
 }
 .student-image{
-    width:20%;
-    height: 80%;
+    width:300px;
+    height: 360px;
+
 }
+.box2{
+margin-left:30px ;
+}
+
 .info-heading{
     color:#1f34d4 ;
 }

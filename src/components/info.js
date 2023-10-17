@@ -24,14 +24,14 @@ export const Info = () => {
 
     return (
         <>
-        
-        
+
+
             {studentInfo && (
                 <div key={studentInfo.id} className="container box mt-2 p-3">
                     <div className="border border-4 shadow-4 rounded p-4">
                         <div className="row">
-                            <div className="d-flex justify-content-center">
-                                <div className="col-9">
+                            <div className="d-flex flex-row">
+                                <div className="col-6">
                                     <h2 className="info-heading">Información del Estudiante</h2>
                                     <ul>
                                         <li>
@@ -74,77 +74,77 @@ export const Info = () => {
                                             {studentInfo.course_name}
                                         </li>
                                     </ul>
+                                    <div className="col-6">
+                                        <h2 className="info-heading">Apoderado Financiero</h2>
+                                        <ul>
+                                            <li>
+                                                <span className="info-label">Rut:</span>{" "}
+                                                {studentInfo.apfinancial_rut_financial}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Nombre:</span>{" "}
+                                                {studentInfo.apfinancial_name}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Apellido:</span>{" "}
+                                                {studentInfo.apfinancial_last_name}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Número de Contacto:</span>{" "}
+                                                {studentInfo.apfinancial_contact_number}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Dirección:</span>{" "}
+                                                {studentInfo.apfinancial_address}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Correo:</span>{" "}
+                                                {studentInfo.apfinancial_email}
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <img
-                                    src={studentInfo.url_img}
-                                    alt="Foto de perfil del estudiante"
-                                    className="student-image col-3 justify-content-center"
-                                />
+                                <div className="box2">
+                                    <div className="col-6">
+                                        <img
+                                            src={studentInfo.url_img}
+                                            alt="Foto de perfil del estudiante"
+                                            className="student-image"
+                                        />
+                                    </div>
+                                    <div className="mt-4">
+                                        <h2 className="info-heading">Apoderado Académico</h2>
+                                        <ul>
+                                            <li>
+                                                <span className="info-label">Rut:</span>{" "}
+                                                {studentInfo.apacademic_rut_academic}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Nombre:</span>{" "}
+                                                {studentInfo.apacademic_name}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Apellido:</span>{" "}
+                                                {studentInfo.apacademic_last_name}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Número de Contacto:</span>{" "}
+                                                {studentInfo.apacademic_contact_number}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Dirección:</span>{" "}
+                                                {studentInfo.apacademic_address}
+                                            </li>
+                                            <li>
+                                                <span className="info-label">Correo:</span>{" "}
+                                                {studentInfo.apacademic_email}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="row ms-2">
-                            <div className="d-flex justify-content-center">
-                                <div className="col-6">
-                                    <h2 className="info-heading">Apoderado Financiero</h2>
-                                    <ul>
-                                        <li>
-                                            <span className="info-label">Rut:</span>{" "}
-                                            {studentInfo.apfinancial_rut_financial}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Nombre:</span>{" "}
-                                            {studentInfo.apfinancial_name}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Apellido:</span>{" "}
-                                            {studentInfo.apfinancial_last_name}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Número de Contacto:</span>{" "}
-                                            {studentInfo.apfinancial_contact_number}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Dirección:</span>{" "}
-                                            {studentInfo.apfinancial_address}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Correo:</span>{" "}
-                                            {studentInfo.apfinancial_email}
-                                        </li>
-                                    </ul>
-                                </div>
 
-                                <div className="col-6">
-                                    <h2 className="info-heading">Apoderado Académico</h2>
-                                    <ul>
-                                        <li>
-                                            <span className="info-label">Rut:</span>{" "}
-                                            {studentInfo.apacademic_rut_academic}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Nombre:</span>{" "}
-                                            {studentInfo.apacademic_name}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Apellido:</span>{" "}
-                                            {studentInfo.apacademic_last_name}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Número de Contacto:</span>{" "}
-                                            {studentInfo.apacademic_contact_number}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Dirección:</span>{" "}
-                                            {studentInfo.apacademic_address}
-                                        </li>
-                                        <li>
-                                            <span className="info-label">Correo:</span>{" "}
-                                            {studentInfo.apacademic_email}
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             )}
