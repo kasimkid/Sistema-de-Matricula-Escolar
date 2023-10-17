@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { ToastContainer, toast } from "react-toastify";
 
 export const AcademicForm = () => {
   const { store, actions } = useContext(Context);
@@ -16,12 +17,13 @@ export const AcademicForm = () => {
     student_id: "",
   });
 
-  const handleChange = (event) => {
+  const handleChange =  (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (event) => {
+    console.log(handleSubmit,"hola")
     event.preventDefault();
     if (id) {
       actions.editAcademic(id, formData);
@@ -37,8 +39,19 @@ export const AcademicForm = () => {
       email: "",
       student_id: "",
     });
-    navigate("/");
+    toast.success('Registro completo', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    navigate(`/student/${formData.student_id}`);
   };
+  
   useEffect(() => {
     actions.getStudents();
   }, []);
@@ -144,19 +157,16 @@ export const AcademicForm = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-6 d-flex d-flex justify-content-end mt-3">
-            <Link
-              to={"/my-app/formfinanciero"}
-              type="button"
-              className="btn btn-success mt-2 mx-2 shadow"
-            >
+            <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
               Guardar
-            </Link>
+            </button>
             <Link to="/formstudent" className="btn btn-danger mt-2 mx-2 shadow">
               Cancelar
             </Link>
           </div>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };

@@ -67,14 +67,14 @@ export const Login = () => {
   return (
     <>
       <div className="d-flex justify-content-center">
-        <form className="col-8 p-4 b rounded login" onSubmit={handleSubmit}>
+        <form className="col-8 p-4 border border-4 shadow-3 rounded login" onSubmit={handleSubmit}>
           <div className=" mb-3">
             <label htmlFor="rut-number" className="form-label">
               Rut
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control input-rut"
               id="rut-number"
               name="rut"
               placeholder="Ingrese su rut"
@@ -89,7 +89,7 @@ export const Login = () => {
             </label>
             <input
               type="password"
-              className="form-control"
+              className="form-control input-pass"
               name="password"
               id="password"
               placeholder="contraseña"

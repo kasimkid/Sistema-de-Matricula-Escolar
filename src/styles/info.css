@@ -1,43 +1,14 @@
-.col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+.box{
+    background-color: rgb(144, 197, 189);
 }
-
-.info-heading {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    background-color: #f0f0f0; /* Color de fondo */
-    padding: 5px;
-    border-radius: 10px; /* Esquinas redondeadas */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombreado */
+.box li, span{
+    font-size: 22px;
+    font-weight: 500;
 }
-
-.student-image {
-    width: 100px; /* Ajusta el tamaño según tu preferencia */
-    height: 100px; /* Ajusta el tamaño según tu preferencia */
-    object-fit: cover; /* Ajusta la forma en que la imagen se ajusta dentro del contenedor */
-    border-radius: 50%; /* Hace que la imagen tenga bordes redondeados */
-    margin-bottom: 10px; /* Espacio entre la imagen y la lista de información */
-    float: right; /* Mueve la imagen a la derecha */
-    margin-left: 10px; /* Agrega un margen a la izquierda de la imagen */
+.student-image{
+    width:20%;
+    height: 80%;
 }
-
-.list-group-item {
-    border: none;
-}
-
-.info-label {
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+.info-heading{
+    color:#1f34d4 ;
 }

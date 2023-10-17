@@ -35,7 +35,7 @@ export const StudentForm = () => {
   const handleImageUpload = (url) => {
     toast.success('Imagen creada', {
       position: "top-center",
-      autoClose: 1000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

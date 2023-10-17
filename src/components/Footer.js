@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-<footer className="">
+<footer className="mt-3">
     <div className="row redes">
         <div className="col-lg-12 icons">
         <i className="fa-solid fa-phone" style={{ color: "black" }}> Telefonos</i>

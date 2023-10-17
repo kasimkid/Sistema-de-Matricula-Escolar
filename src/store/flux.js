@@ -102,9 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       formFinancial: (info) => {
-        console.log(info)
         const store = getStore()
-        console.log(`${url}${urlUpdateFinancial}`)
         fetch(`${url}${urlUpdateFinancial}`, {
           method: "POST",
           body: JSON.stringify(info),
@@ -178,7 +176,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       editFinancial: (id, info) => {
-        console.log("EDIT FINANCIAL", `${url}${urlEditFinalcial}/${id}`)
         fetch(`${url}${urlEditFinalcial}/${id}`, {
           method: "PUT",
           body: JSON.stringify(info),
@@ -243,7 +240,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(`${url}${urlGetInfo}`)
         console.log('urlGetInfo:', urlGetInfo);
         console.log('id:', id);
-        fetch("http://localhost:8080/info/1")
+        fetch(`${url}${urlGetInfo}/${id}`)
           .then((data) => {
             if (!data.ok) {
               throw new Error('Error al mostrar info de estudiantes');

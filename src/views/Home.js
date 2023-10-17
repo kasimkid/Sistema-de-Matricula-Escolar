@@ -7,11 +7,11 @@ import { Footer } from '../components/Footer';
 export const Home = () => {
     return (
         <>
-            <div className="container mt-4">
+            <div className="container box mt-4 mb-4">
 
                 <div className='d-flex flex-column-reverse flex-md-row'>
 
-                    <div className='col-12 col-md-6 d-flex flex-column justify-content-center align-items-center'>
+                    <div className=' box-img col-12 col-md-6 d-flex flex-column justify-content-center align-items-center'>
                         <div className="p-3">
                             <img src="https://picsum.photos/200" className="img-thumbnail" alt="..." />
                         </div>

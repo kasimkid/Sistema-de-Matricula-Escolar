@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { ToastContainer, toast } from "react-toastify";
 import "../styles/financialform.css";
-import ModalConfirm from "./ModalConfirm";
+
 
 export const FinancialForm = () => {
   const { store, actions } = useContext(Context);
@@ -40,34 +41,29 @@ export const FinancialForm = () => {
       email: "",
       student_id: "",
     });
+    
+    toast.success('Registro agregado', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    
     navigate("/my-app/formacademico");
   };
   useEffect(() => {
     actions.getStudents();
   }, []);
 
-  const [show, setShow] = useState(false);
-
-  const handleClose = async () => {
-    setShow(false);
-    await actions.deleteContact(id);
-
-    await actions.obtenerAgenda();
-  };
-  const handleShow = () => {
-    setShow(true);
-  };
-
   return (
     <>
       <div className="container p-5 mt-5 box shadow">
         <h3 className="text-center mb-5">Apoderado Financiero</h3>
         <form className="" onSubmit={handleSubmit}>
-          <ModalConfirm
-            show={show}
-            handleShow={handleShow}
-            handleClose={handleClose}
-          />
           <div className="row d-flex justify-content-center">
             <div className="col-12 col-md-6 border border-4 shadow rounded p-5 w-50">
               <div className="form-group">
@@ -181,6 +177,7 @@ export const FinancialForm = () => {
             </div>
           </div>
         </form>
+        <ToastContainer />
       </div>
     </>
   );
