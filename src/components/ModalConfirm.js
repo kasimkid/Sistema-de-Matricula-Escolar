@@ -3,12 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 function ModalConfirm({ show, handleClose}) {
-
-
-
     return (
         <>
-
             <ModalConfirm show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Guardar Datos</Modal.Title>

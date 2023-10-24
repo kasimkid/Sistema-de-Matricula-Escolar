@@ -37,53 +37,6 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
-
-      {/* <nav classNameName=" container nav-color navbar navbar-expand-lg">
-        <div classNameName="container">
-          <img src="" classNameName="navbar-brand "></img>
-          <h4>Sistema de Matricula Escolar</h4>
-          <button
-            classNameName="navbar-toggler"
-            type="button"
-            data-bs-toggle="dopdown"
-            aria-expanded="false"
-          >
-            <span classNameName="navbar-toggler-icon"></span>
-          </button>
-          <div
-            classNameName="collapse navbar-collapse justify-content-end"
-            id="navbarNavDropdown"
-          >
-            <ul classNameName="navbar-nav">
-              <li classNameName="nav-item dropdown">
-                <button
-                  classNameName="btn btn- ligth dropdown-toggle"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Menu
-                </button>
-                <ul classNameName="dropdown-menu">
-                  <Link to="/">
-                    <li>Inicio</li>
-                  </Link>
-                  <Link to="/formacademico">
-                    <li>Académico</li>
-                  </Link>
-                  <Link to="/formfinanciero">
-                    <li>Financiero</li>
-                  </Link>
-                  <Link to="/">
-                    <li>Mis Datos</li>
-                  </Link>
-
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav> */}
     </>
   );
 };

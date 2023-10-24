@@ -6,7 +6,5 @@ export const FormAcademic = () => {
         <>
                 <AcademicForm />
         </>
-
-
     )
 }

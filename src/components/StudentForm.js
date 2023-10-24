@@ -43,7 +43,7 @@ export const StudentForm = () => {
       progress: undefined,
       theme: "light",
     });
-    setImageURL(url); // Almacena la URL de la imagen en el estado
+    setImageURL(url);
 
   };
 
@@ -68,6 +68,7 @@ export const StudentForm = () => {
         observation: "",
         url_img: "",
         student_id: "",
+        roll: "",
         course_name: ""
       });
       setImageURL("");
@@ -76,8 +77,9 @@ export const StudentForm = () => {
   };
 
   useEffect(() => {
-    actions.getCourse(); // Cargar cursos al cargar el componente
+    actions.getCourse();
   }, []);
+  
   return (
     <div className="container p-5 mt-5 box shadow">
       <h2 className="text-center mb-5">Datos del estudiante</h2>
@@ -122,7 +124,6 @@ export const StudentForm = () => {
                     required
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="gender">Género</label>
                   <select
@@ -147,6 +148,7 @@ export const StudentForm = () => {
                     maxLength="250"
                     onChange={handleChange}
                     value={formData.observation}
+                    required
                   ></textarea>
                 </div>
               </div>

@@ -3,7 +3,6 @@ import "../styles/home.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
-
 export const Login = () => {
   const {actions } = useContext(Context)
   const navigate = useNavigate()
@@ -64,7 +63,7 @@ export const Login = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
-              Password
+              Contraseña
             </label>
             <input
               type="password"

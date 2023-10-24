@@ -4,9 +4,6 @@ const urlimg = process.env.REACT_APP_API_URL_UPLOAD_IMG;
 
 export const Upload = ({handleImageUpload}) => {
     const fileInputRef = useRef(null);
-    // const openFilePicker = () => {
-    //     fileInputRef.current.click();
-    // };
     const handleFileChange = async (event) => {
         const file = event.target.files[0];
         if (file) {

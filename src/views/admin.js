@@ -4,7 +4,6 @@ import { NewAcount } from "../components/NewAcount";
 import "../styles/admin.css";
 import { CardStudent } from "../components/CardStudent";
 
-
 export const Admin = () => {
   const { store, actions } = useContext(Context);
   const [showStudents, setShowStudents] = useState(false);
@@ -37,7 +36,6 @@ export const Admin = () => {
 
   return (
     <>
-    
     <div className="container view-admin">
       <div className="row p-4">
         <div className="col-2">
@@ -67,11 +65,8 @@ export const Admin = () => {
           </div>
         </div>
         <div className="col-10">
-
-
           {showStudents && (
             <CardStudent/>
-
           )}
           {showCourses && store.courses.length > 0 && <h2>Lista de Cursos</h2>}
           {showCourses && (
@@ -80,13 +75,11 @@ export const Admin = () => {
                 <li
                   className="list-group-item"
                   key={course.id}
-                >{`${course.course_name}: ${course.id.length}/30`}</li>
+                >{`${course.course_name}: ${course.course_name.length}/30`}</li>
               ))}
             </ul>
           )}
-
           {showNewAccount && <NewAcount />}{" "}
-          {/* Renderiza NewAcount si showNewAccount es true */}
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ const urlGetStudents = process.env.REACT_APP_API_URL_GET_STUDENT;
 const urlGetInfo = process.env.REACT_APP_API_URL_GET_INFO;
 const urlGetCourses = process.env.REACT_APP_API_URL_GET_COURSE;
 const urlLoginUser = process.env.REACT_APP_API_URL_LOGIN_USER;
+const getStudentsCourse = process.env.REACT_APP_API_URL_STUDENTS_COURSE;
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -23,7 +24,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       courses: [],
       course: "",
       dataUser: []
-
     },
     actions: {
       // POST
@@ -54,7 +54,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           headers: {
             "Content-Type": "application/json"
           }
-
         }
         try {
           const resp = await fetch(`${url}${urlLoginUser}`, request)
@@ -84,19 +83,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await resp.json()
         console.log(data)
         return data
-        // .then((data) => {
-        //   if (!data.ok) {
-        //       throw new Error('Error al crear al estudiante');
-        //     }
-        //   })
-        // .then((resp) => {
-        //   setStore({ students: [...store.students, resp] });
-        //   console.log(resp);
-        //   return resp.json();
-        // })
-        // .catch((error) => {
-        //   console.log("Error", error)
-        // });
       },
 
       formFinancial: (info) => {
@@ -150,7 +136,6 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.log("Error", error)
           });
       },
-
       // PUTS
       editStudent: (id, info) => {
         console.log(`${url}${urlEditStudent}/${id}`)
@@ -273,6 +258,22 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error("Error:", error)
           });
       },
+      getStudentsCourse: () => {
+        fetch(`${url}${getStudentsCourse}`)
+        .then((data) => {
+          if (!data.ok) {
+            throw new Error('Error al mostrar los cursos');
+          }
+          return data.json();
+        })
+        .then((resp) => {
+          setStore({ courses: resp });
+          console.log('Courses from API:', resp);
+        })
+        .catch(error => {
+          console.error("Error:", error)
+        });
+      }, 
     },
   };
 };
