@@ -81,7 +81,7 @@ export const StudentForm = () => {
   }, []);
   return (
     <div className="container p-5 mt-5 box shadow">
-      <h2 className="text-center mb-5">Datos del estudiante</h2>
+      <h2 className="text-center mb-5">Datos del Estudiante</h2>
       <form className="" onSubmit={handleSubmit}>
         <div className="row justify-content-center ">
           <div className="col-10 border border-4 shadow rounded py-2 px-5">
