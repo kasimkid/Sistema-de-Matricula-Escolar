@@ -1,41 +1,96 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import "../styles/home.css";
+import { Context } from "../store/appContext";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  const {actions } = useContext(Context)
+  const navigate = useNavigate()
+
+  const [log, setLog] = useState({
+    rut:"",
+    password:""
+  })  
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setLog({ ...log, [name]: value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    let loginUser;
+    try {
+      loginUser = await actions.login(log)
+      console.log('loginUser', loginUser)
+    }catch(error){
+      console.log(error)
+    }   
+    
+    if(!loginUser.data){
+      return 
+    }
+    if (loginUser.data.roll === 1){
+      navigate ("/my-app/admin")
+    }
+    else{
+      navigate("/my-app/formstudent")
+    }
+    setLog({
+      rut: "",
+      password: ""
+    })
+    console.log(loginUser.data.roll)
+  }
+
   return (
     <>
-      <section className="box-log row">
-        <div className="mt-3">
-          <label htmlFor="text" className="form-control-label">
-            Ingrese su Rut
-          </label>
-          <div>
+      <div className="d-flex justify-content-center">
+        <form className="col-8 p-4 b rounded login" onSubmit={handleSubmit}>
+          <div className=" mb-3">
+            <label htmlFor="rut-number" className="form-label">
+              Rut
+            </label>
             <input
               type="text"
-              className="form-control input-rut"
+              className="form-control"
               id="rut-number"
-              placeholder="Rut"
+              name="rut"
+              placeholder="Ingrese su rut"
+              onChange={handleChange}
+              value={log.rut}
               required
             />
           </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="inputPassword" className="form-label">
-            Contraseña
-          </label>
-          <div>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Contraseña
+            </label>
             <input
               type="password"
-              className="form-control input-pass"
-              id="inputPassword"
-              placeholder="password"
+              className="form-control"
+              name="password"
+              id="password"
+              placeholder="contraseña"
+              onChange={handleChange}
+              value={log.password}
               required
             />
+            {/* <div className="form-group form-check mt-2">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="exampleCheck1"
+              />
+              <label className="form-check-label">Soy Estudiante</label>
+            </div> */}
           </div>
-          <div className="d-flex justify-content-center">
-        <button type="submit" className="btn btn-primary my-2 col- ">Ingresar</button>
-        </div>
-        </div>
-      </section>
+          <div className="d-grid gap-2 col-6 mx-auto">
+            <button type="" className="btn btn-success">
+              Ingresar
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

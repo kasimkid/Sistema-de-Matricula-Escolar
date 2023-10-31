@@ -1,0 +1,35 @@
+
+.card {
+    width: 12rem;
+    margin: 2px;
+    background-color: #6c757d;
+    border: none;
+    border-radius: 10px;
+    padding: 2px;
+}
+.card .card-body {
+    padding: 0.5rem;
+}
+.card .card-img-top {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 150px;
+}
+.card .card-title {
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.card .card-subtitle {
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.card a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.card a:hover {
+    color: darkorange;
+}
+  

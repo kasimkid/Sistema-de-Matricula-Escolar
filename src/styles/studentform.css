@@ -1,14 +1,8 @@
-.container {
-    background-color: #D9D9D9;
+.contenedor {
+    background-color: #91ddd9;
     border-radius: 12px;
     margin-top: 12px;
 }
-
 .col {
     margin: 0 10px;
-}
-
-.form-control {
-    background-color: #E0F7FA;
-    border-radius: 8px;
 }

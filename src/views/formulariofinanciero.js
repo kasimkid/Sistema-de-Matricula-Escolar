@@ -6,7 +6,5 @@ export const FormFinancial = () => {
         <>
                 <FinancialForm />
         </>
-
-
     )
 }
