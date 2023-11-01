@@ -38,16 +38,7 @@ export const AcademicForm = () => {
       email: "",
       student_id: "",
     });
-    toast.success('Registro completo', {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+
     toast.success('Registro completo', {
       position: "top-center",
       autoClose: 2000,
