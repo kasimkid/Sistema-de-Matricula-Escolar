@@ -146,6 +146,12 @@ export const Info = () => {
                         </div>
 
                     </div>
+                    <p>NOTA: Si encuentra algún error en esta información, póngase en contacto con 
+                        la administración de nuestro colegio indicando dónde se encuentra el error, 
+                        a nuestro correo <a href="mailto:matriculas@colegio.cl">matriculas@colegio.cl</a>.
+
+
+                    </p>
                 </div>
             )}
         </>

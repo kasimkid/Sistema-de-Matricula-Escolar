@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import { Context } from "../store/appContext";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -22,8 +23,7 @@ export const AcademicForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
-    console.log(handleSubmit,"hola")
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (id) {
       actions.editAcademic(id, formData);
@@ -49,7 +49,19 @@ export const AcademicForm = () => {
       progress: undefined,
       theme: "light",
     });
+    toast.success('Registro completo', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    await new Promise(resolve => setTimeout(resolve, 2000));
     navigate(`/student/${formData.student_id}`);
+
   };
   
   useEffect(() => {
@@ -166,6 +178,7 @@ export const AcademicForm = () => {
           </div>
         </div>
       </form>
+      <ToastContainer />
       <ToastContainer />
     </div>
   );

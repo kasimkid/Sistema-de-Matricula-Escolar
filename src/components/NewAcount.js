@@ -11,21 +11,36 @@ export const NewAcount = () => {
     email: "",
     roll: ""
   })
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setLog({ ...log, [name]: value });
   };
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
-    setLog({ ...log, roll: value }); // Cambiado para solo actualizar el rol
-
+    setLog({ ...log, roll: value });
   };
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     await actions.createAccount(log)
+    try {
+      const response = await fetch('http://localhost:8080/enviar_correo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(log)
+      });
 
+      if (response.ok) {
+        console.log('Correo enviado exitosamente');
+      } else {
+        console.error('Error al enviar el correo');
+      }
+    } catch (error) {
+      console.error('Error al enviar la solicitud:', error);
+    }
     setLog({
       rut: "",
       password: "",
@@ -134,7 +149,7 @@ export const NewAcount = () => {
         <div className="form-check">
           <input className="form-check-input" type="checkbox" onChange={handleCheckboxChange} checked={log.roll === "1"} value="1" id="flexCheckAdmin" />
           <label className="form-check-label" htmlFor="flexCheckAdmin">
-            Administrador
+            Colaborador
           </label>
         </div>
         <div className="d-flex justify-content-center mt-3">

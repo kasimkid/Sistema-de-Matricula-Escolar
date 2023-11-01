@@ -1,43 +1,35 @@
-/* styles.css */
 
-/* Estilo para reducir el tamaño de la tarjeta y el texto */
 .card {
-    width: 12rem; /* Ajusta el ancho de la tarjeta según tu preferencia */
-    margin: 2px; /* Agrega un margen alrededor de la tarjeta */
-    background-color: #6c757d; /* Color de fondo similar a btn-secondary de Bootstrap */
-    border: none; /* Elimina el borde */
-    border-radius: 10px; /* Agrega esquinas redondeadas */
-    padding: 2px; /* Ajusta el espacio interno */
-  }
-  
-  .card .card-body {
-    padding: 0.5rem; /* Modificado: Ajuste de padding más pequeño */
-  }
-
-  .card .card-img-top {
-    width: 100%; /* Ajusta el ancho de la imagen al 100% */
-    border-radius: 10px; /* Agrega esquinas redondeadas a la imagen */
-    object-fit: cover; /* Ajusta la imagen para que cubra el área */
-    height: 150px; /* Ajusta la altura de la imagen según tu preferencia */
+    width: 12rem;
+    margin: 2px;
+    background-color: #6c757d;
+    border: none;
+    border-radius: 10px;
+    padding: 2px;
 }
-  
-  .card .card-title {
-    font-size: 1rem; /* Tamaño de fuente para el título */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra de texto */
-  }
-  
-  .card .card-subtitle {
-    font-size: 0.8rem; /* Tamaño de fuente para el subtítulo */
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); /* Sombra de texto */
-  }
-  
-  .card a {
-    color: white; /* Cambia el color de los enlaces a blanco */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    transition: color 0.3s; /* Efecto de transición para el color */
-  }
-  
-  .card a:hover {
-    color: darkorange; /* Cambia el color al pasar el mouse */
-  }
+.card .card-body {
+    padding: 0.5rem;
+}
+.card .card-img-top {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 150px;
+}
+.card .card-title {
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.card .card-subtitle {
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.card a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.card a:hover {
+    color: darkorange;
+}
   

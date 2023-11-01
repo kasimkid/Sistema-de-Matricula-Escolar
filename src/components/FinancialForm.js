@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
-import { ToastContainer, toast } from "react-toastify";
 import "../styles/financialform.css";
 
 
@@ -41,6 +40,17 @@ export const FinancialForm = () => {
       email: "",
       student_id: "",
     });
+    toast.success('Registro agregado', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    navigate("/my-app/formacademico")
     
     toast.success('Registro agregado', {
       position: "top-center",
@@ -176,9 +186,9 @@ export const FinancialForm = () => {
               </Link>
             </div>
           </div>
-        </form>
-        <ToastContainer />
-      </div>
+      </form>
+        </div>
+      <ToastContainer />
     </>
   );
 };

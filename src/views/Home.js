@@ -1,8 +1,8 @@
-import React from 'react'
-import { Login } from '../components/Login'
+import React from 'react';
+import { Login } from '../components/Login';
 import "../styles/home.css";
+import colegioImagen from '../img/colegio.png';
 import { Footer } from '../components/Footer';
-
 
 export const Home = () => {
     return (
@@ -11,20 +11,23 @@ export const Home = () => {
 
                 <div className='d-flex flex-column-reverse flex-md-row'>
 
+<<<<<<< HEAD
                     <div className=' box-img col-12 col-md-6 d-flex flex-column justify-content-center align-items-center'>
                         <div className="p-3">
                             <img src="https://picsum.photos/200" className="img-thumbnail" alt="..." />
+=======
+                    <div className='col-12 col-md-6 d-flex flex-column justify-content-center align-items-center'>
+                        <div className="p-3 d-flex flex-column justify-content-center align-items-center">
+                            <img src={colegioImagen} className="img-thumbnail" alt="..." />
+>>>>>>> 124146d038e70892f71e3891c250d3e292416445
                         </div>
-
                     </div>
                     <div className='col-12 col-md-6 d-flex flex-column justify-content-center p-3'>
                         <Login />
                     </div>
-
                 </div>
                     <Footer />
             </div>
-
         </>
     )
 }

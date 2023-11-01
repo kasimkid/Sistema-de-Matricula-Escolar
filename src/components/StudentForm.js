@@ -33,7 +33,11 @@ export const StudentForm = () => {
   };
   console.log('formData', formData)
   const handleImageUpload = (url) => {
+<<<<<<< HEAD
     toast.success('Imagen creada', {
+=======
+    toast.success('Imagen cargada', {
+>>>>>>> 124146d038e70892f71e3891c250d3e292416445
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
@@ -43,7 +47,11 @@ export const StudentForm = () => {
       progress: undefined,
       theme: "light",
     });
+<<<<<<< HEAD
     setImageURL(url); // Almacena la URL de la imagen en el estado
+=======
+    setImageURL(url);
+>>>>>>> 124146d038e70892f71e3891c250d3e292416445
 
   };
 
@@ -54,7 +62,6 @@ export const StudentForm = () => {
       actions.editStudent(id, formDataWithImage);
     } else {
       const respuesta = await actions.formStudents(formDataWithImage);
-
       console.log(respuesta)
 
       setFormData({
@@ -69,6 +76,7 @@ export const StudentForm = () => {
         observation: "",
         url_img: "",
         student_id: "",
+        roll: "",
         course_name: ""
       });
       setImageURL("");
@@ -77,8 +85,9 @@ export const StudentForm = () => {
   };
 
   useEffect(() => {
-    actions.getCourse(); // Cargar cursos al cargar el componente
+    actions.getCourse();
   }, []);
+  
   return (
     <div className="container p-5 mt-5 box shadow">
       <h2 className="text-center mb-5">Datos del Estudiante</h2>
@@ -123,7 +132,6 @@ export const StudentForm = () => {
                     required
                   />
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="gender">Género</label>
                   <select

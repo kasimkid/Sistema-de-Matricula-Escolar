@@ -3,9 +3,9 @@
     height: 180px;
     background-color:#D9D9D9;
     border-radius: 12px;
-    box-shadow:2px 2px 8px #130d0d;
-    
+    box-shadow:2px 2px 8px #130d0d;  
 }
+<<<<<<< HEAD
 
 .login{
     width: 300px;
@@ -15,6 +15,10 @@
     box-shadow:2px 2px 8px #130d0d;
     
 
+=======
+.login{
+    background-color: #D9D9D9;
+>>>>>>> 124146d038e70892f71e3891c250d3e292416445
 }
 .input-rut::placeholder{
     text-align: center;
@@ -24,8 +28,6 @@
     background-position: left center;
     align-items: center
 }
-
-
 .input-pass::placeholder{
  
     text-align: center;
@@ -34,4 +36,9 @@
     background-repeat: no-repeat;
     background-position: left center;
     align-items: center
+}
+img {
+    justify-content: center;
+    width: 40%;
+    height: 40%;
 }
