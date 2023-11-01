@@ -8,7 +8,7 @@ export const CardStudent = () => {
 
   useEffect(() => {
     actions.getStudents();
-  }, []);
+  },);
 
   return (
     <div className="card-container">

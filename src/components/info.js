@@ -10,7 +10,7 @@ export const Info = () => {
 
     useEffect(() => {
         actions.getInfo(id);
-    }, []);
+    },);
 
     useEffect(() => {
         const student = store.students.find(

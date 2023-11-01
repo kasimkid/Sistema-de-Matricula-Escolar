@@ -56,7 +56,7 @@ export const AcademicForm = () => {
   
   useEffect(() => {
     actions.getStudents();
-  }, []);
+  },);
 
   return (
     <div className="container p-5 mt-5 box shadow">

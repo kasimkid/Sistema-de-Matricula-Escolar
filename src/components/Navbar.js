@@ -15,7 +15,7 @@ export const Navbar = () => {
             <ul className="navbar-nav">
     
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Menú
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

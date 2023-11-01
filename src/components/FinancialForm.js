@@ -57,7 +57,7 @@ export const FinancialForm = () => {
   };
   useEffect(() => {
     actions.getStudents();
-  }, []);
+  },);
 
   return (
     <>
