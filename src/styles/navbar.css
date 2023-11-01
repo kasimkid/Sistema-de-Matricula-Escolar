@@ -1,0 +1,12 @@
+.menu-color{
+    background-color: #A8E6CF;
+    border-radius: 12px;
+}
+.dropdown-menu li{
+    color: orangered;
+    margin-left: 5px;
+}
+.links{
+    outline: none;
+    text-decoration:none;
+}
