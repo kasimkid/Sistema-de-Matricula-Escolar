@@ -2,7 +2,6 @@ import injectContext from "./store/appContext";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import "../src/styles/app.css";
@@ -12,18 +11,6 @@ import { FormStudent } from "./views/Form-student";
 import { FormFinancial } from "./views/formulariofinanciero";
 import { FormAcademic } from "./views/formularioacademico";
 import { Admin } from "./views/admin";
-=======
-import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ScrollToTop from './components/ScrollToTop';
-import "../src/styles/App.css"
-import { Navbar } from './components/Navbar';
-import { Home } from './views/Home';
-import { FormStudent } from "./views/Form-student"
-import { FormFinancial } from './views/formulariofinanciero';
-import { FormAcademic } from './views/formularioacademico';
-import { Admin } from './views/admin';
->>>>>>> 124146d038e70892f71e3891c250d3e292416445
 import { Student } from "./views/Students";
 import { HistoryStudent } from "./views/historialestudiante";
 import RutaProtegida from "./views/RutaProtegida";
@@ -37,26 +24,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/student/:id" element={<Student />} />
-<<<<<<< HEAD
-            <Route path="/my-app/admin" element={<Admin />} />
-            {/* Ruta Privada */}
-            <Route path="/my-app" element={<RutaProtegida />}>
-=======
 
             <Route path="/my-app" element={<RutaProtegida />}>
               <Route path="/my-app/admin" element={<Admin />} />
->>>>>>> 124146d038e70892f71e3891c250d3e292416445
               <Route path="/my-app/formstudent" element={<FormStudent />} />
               <Route path="/my-app/formfinanciero" element={<FormFinancial />} />
               <Route path="/my-app/formacademico" element={<FormAcademic />} />
             </Route>
             <Route path="/cursos" element={<HistoryStudent />} />
-<<<<<<< HEAD
-            <Route path="/formstudent/:id" element={<FormStudent />} />
-            <Route path="/formacademico/:id" element={<FormAcademic />} />
-            <Route path="/formfinanciero/:id" element={<FormFinancial />} />
-=======
->>>>>>> 124146d038e70892f71e3891c250d3e292416445
             <Route path="*" element={<h1>Not found!</h1>} />
           </Routes>
         </ScrollToTop>

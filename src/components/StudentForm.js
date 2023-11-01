@@ -33,11 +33,7 @@ export const StudentForm = () => {
   };
   console.log('formData', formData)
   const handleImageUpload = (url) => {
-<<<<<<< HEAD
-    toast.success('Imagen creada', {
-=======
     toast.success('Imagen cargada', {
->>>>>>> 124146d038e70892f71e3891c250d3e292416445
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: false,
@@ -47,11 +43,7 @@ export const StudentForm = () => {
       progress: undefined,
       theme: "light",
     });
-<<<<<<< HEAD
-    setImageURL(url); // Almacena la URL de la imagen en el estado
-=======
     setImageURL(url);
->>>>>>> 124146d038e70892f71e3891c250d3e292416445
 
   };
 
