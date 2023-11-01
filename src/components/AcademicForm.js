@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { Context } from "../store/appContext";
-import { ToastContainer, toast } from "react-toastify";
 
 export const AcademicForm = () => {
   const { store, actions } = useContext(Context);
