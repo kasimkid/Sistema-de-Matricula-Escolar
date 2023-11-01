@@ -14,10 +14,10 @@ export const AcademicForm = () => {
     contact_number: "",
     address: "",
     email: "",
-    student_id: ""
+    student_id: "",
   });
 
-  const handleChange = (event) => {
+  const handleChange =  (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -36,8 +36,9 @@ export const AcademicForm = () => {
       contact_number: "",
       address: "",
       email: "",
-      student_id: ""
+      student_id: "",
     });
+
     toast.success('Registro completo', {
       position: "top-center",
       autoClose: 2000,
@@ -52,18 +53,15 @@ export const AcademicForm = () => {
     navigate(`/student/${formData.student_id}`);
 
   };
+  
   useEffect(() => {
     actions.getStudents();
-  }, []);
-
+  },);
 
   return (
     <div className="container p-5 mt-5 box shadow">
       <h3 className="text-center mb-5">Apoderado Académico</h3>
-      <form
-        className=""
-        onSubmit={handleSubmit}
-      >
+      <form className="" onSubmit={handleSubmit}>
         <div className="row d-flex justify-content-center">
           <div className="col-12 col-md-6 border border-4 shadow rounded p-5 w-50">
             <div className="form-group">
@@ -161,15 +159,16 @@ export const AcademicForm = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-6 d-flex d-flex justify-content-end mt-3">
-          <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
+            <button type="submit" className="btn btn-success mt-2 mx-2 shadow">
               Guardar
-              </button>
-              <Link to="/formstudent" className="btn btn-danger mt-2 mx-2 shadow">
+            </button>
+            <Link to="/formstudent" className="btn btn-danger mt-2 mx-2 shadow">
               Cancelar
             </Link>
           </div>
         </div>
       </form>
+      <ToastContainer />
       <ToastContainer />
     </div>
   );

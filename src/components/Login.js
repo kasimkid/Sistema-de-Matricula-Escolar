@@ -1,16 +1,21 @@
 import React, { useContext, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../styles/home.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  
   const {actions } = useContext(Context)
   const navigate = useNavigate()
+  
 
   const [log, setLog] = useState({
     rut:"",
     password:""
   })  
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
     setLog({ ...log, [name]: value });
@@ -18,41 +23,57 @@ export const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let loginUser;
-    try {
-      loginUser = await actions.login(log)
-      console.log('loginUser', loginUser)
-    }catch(error){
-      console.log(error)
-    }   
-    
-    if(!loginUser.data){
-      return 
+ 
+    const loginUser = await actions.login(log)
+
+    if (!/^\d{7,8}-[\dkK]$/.test(log.rut)) {
+      // alert("rut no valido")
+      toast.error('rut no valido', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      return;
     }
-    if (loginUser.data.roll === 1){
+    if (!log.password > 6) {
+      toast.error(' password invalido, debe contener mas de 6 caracteres ', {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
+      return;
+    }
+    if (!loginUser.data.roll === 1){
       navigate ("/my-app/admin")
     }
     else{
       navigate("/my-app/formstudent")
     }
-    setLog({
-      rut: "",
-      password: ""
-    })
+    setLog()
     console.log(loginUser.data.roll)
   }
 
   return (
     <>
       <div className="d-flex justify-content-center">
-        <form className="col-8 p-4 b rounded login" onSubmit={handleSubmit}>
+        <form className="col-8 p-4 border border-4 shadow-3 rounded login" onSubmit={handleSubmit}>
           <div className=" mb-3">
             <label htmlFor="rut-number" className="form-label">
               Rut
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control input-rut"
               id="rut-number"
               name="rut"
               placeholder="Ingrese su rut"
@@ -67,7 +88,7 @@ export const Login = () => {
             </label>
             <input
               type="password"
-              className="form-control"
+              className="form-control input-pass"
               name="password"
               id="password"
               placeholder="contraseña"
@@ -75,14 +96,6 @@ export const Login = () => {
               value={log.password}
               required
             />
-            {/* <div className="form-group form-check mt-2">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-              />
-              <label className="form-check-label">Soy Estudiante</label>
-            </div> */}
           </div>
           <div className="d-grid gap-2 col-6 mx-auto">
             <button type="" className="btn btn-success">
@@ -90,6 +103,7 @@ export const Login = () => {
             </button>
           </div>
         </form>
+        <ToastContainer />
       </div>
     </>
   );

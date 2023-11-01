@@ -16,7 +16,6 @@ export const NewAcount = () => {
     const { name, value } = event.target;
     setLog({ ...log, [name]: value });
   };
-
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     setLog({ ...log, roll: value });

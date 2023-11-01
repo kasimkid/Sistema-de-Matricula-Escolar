@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer';
 export const Home = () => {
     return (
         <>
-            <div className="container mt-4">
+            <div className="container box mt-4 mb-4">
 
                 <div className='d-flex flex-column-reverse flex-md-row'>
 

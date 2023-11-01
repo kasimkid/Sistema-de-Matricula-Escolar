@@ -1,6 +1,17 @@
-.col-md-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
+.box{
+    background-color: rgb(144, 197, 189);
+}
+.box li, span{
+    font-size: 22px;
+    font-weight: 500;
+}
+.student-image{
+    width:300px;
+    height: 360px;
+
+}
+.box2{
+margin-left:30px ;
 }
 .info-heading {
     font-size: 1.3rem;
